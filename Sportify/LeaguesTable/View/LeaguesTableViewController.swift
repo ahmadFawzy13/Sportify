@@ -1,46 +1,106 @@
-//
-//  LeaguesTableViewController.swift
-//  Sportify
-//
-//  Created by Abdullah Raed on 11/05/2025.
-//
-
 import UIKit
+import Kingfisher
 
-class LeaguesTableViewController: UITableViewController {
-
+class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
+   
+    var leaguePresenter = LeaguesPresenter()
     var selectedLeague : Selectedleague?
+    var footBallLeagues : [League] = []
+    var basketballLeagues : [League] = []
+    var tennisLeagues : [League] = []
+    var cricket : [League] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let nib = UINib(nibName: "LeaguesCell", bundle: nil)
+        
+        tableView.register(nib, forCellReuseIdentifier: "nibCell")
+        
+        leaguePresenter.attachView(leaguesTableProtocol: self)
+        leaguePresenter.getAllFootballLeagues()
+        leaguePresenter.getAllBasketballLeagues()
+        leaguePresenter.getAllTennisLeagues()
+        leaguePresenter.getAllCricketLeagues()
+        
     }
-
-    // MARK: - Table view data source
+    
+    
+    func getAllFootballLeagues(leagues: [League]) {
+        footBallLeagues = leagues
+        tableView.reloadData()
+    }
+    
+    func getAllBasketballLeagues(leagues : [League]) {
+        basketballLeagues = leagues
+        tableView.reloadData()
+    }
+    
+    func getAllTennisTournaments(leagues: [League]) {
+        tennisLeagues = leagues
+        tableView.reloadData()
+    }
+    
+    
+    func getAllCricketLeagues(leagues: [League]) {
+        cricket = leagues
+        tableView.reloadData()
+    }
+    
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        switch selectedLeague {
+        case .football:
+            return footBallLeagues.count
+        case .basketball:
+            return basketballLeagues.count
+        case .cricket:
+            return cricket.count
+        case .tennis:
+            return tennisLeagues.count
+        case .none:
+            return 1
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
+        
+        var chosenLeague : [League] = []
+        
+        switch selectedLeague {
+            
+        case .basketball:
+            chosenLeague = basketballLeagues
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "nba.jpg"))
+        case .football :
+            chosenLeague = footBallLeagues
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "conembol.png"))
+        case .cricket :
+            chosenLeague = cricket
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg"))
+        case .tennis :
+            chosenLeague = tennisLeagues
+           cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "tennisPlaceholder.jpg"))
+        case .none:
+            chosenLeague = []
+        }
+        cell.leagueTitle.text = chosenLeague[indexPath.row].leagueName
+        
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

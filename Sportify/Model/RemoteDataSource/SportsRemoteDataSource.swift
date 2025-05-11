@@ -1,10 +1,3 @@
-//
-//  SportRemoteDataSource.swift
-//  Sportify
-//
-//  Created by Abdullah Raed on 11/05/2025.
-//
-
 import Foundation
 
 
@@ -20,5 +13,15 @@ class SportsRemoteDataSource : RemoteDataSource {
     func getAllFootballLeagues(completionHandler: @escaping ([League]) -> Void) {
         networkService.getAllFootballLeagues(completionHandler: completionHandler)
     }
+    func getAllBasketballLeagues(completionHandler: @escaping ([League]) -> Void) {
+        networkService.getAllBasketballLeagues(completionHandler: completionHandler)
+    }
     
+    func getAllTennisTournaments(completionHandler: @escaping ([League]) -> Void) {
+        networkService.getAllTennisTournaments(completionHandle: completionHandler)
+    }
+    
+    func getAllCricketLeagues(completionHandler: @escaping ([League]) -> Void) {
+        networkService.getAllCricketLeagues(completionHandle: completionHandler)
+    }
 }

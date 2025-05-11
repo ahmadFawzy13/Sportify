@@ -7,4 +7,5 @@ target 'Sportify' do
 
 	pod 'Alamofire'
 	pod 'SwiftyJSON'
+	pod 'Kingfisher', '~> 7.0'
 end
