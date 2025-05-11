@@ -14,6 +14,7 @@ final class SportsDB : CoreDataServices{
         
         databaseValidation = DatabaseValidation.instance
         fetchRequest = DatabaseFetchRequest.instance
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         context = appDelegate.persistentContainer.viewContext
@@ -100,7 +101,7 @@ final class SportsDB : CoreDataServices{
             print("\(league.name) deleted")
             
         }catch {
-            print("Error while deleting \(league.name) from database : \(error.localizedDescription)")
+            print("Error while deleting \(league.name) from database : \(error)")
         }
     }
     
@@ -118,7 +119,7 @@ final class SportsDB : CoreDataServices{
             }
           
         }catch{
-            print("Error while deleting all leagues : \(error.localizedDescription)")
+            print("Error while deleting all leagues : \(error)")
         }
     }
     
@@ -138,7 +139,7 @@ final class SportsDB : CoreDataServices{
     
 }
 
-final class DatabaseValidation : CoreDataValidation {
+fileprivate final class DatabaseValidation : CoreDataValidation {
     
         static let instance = DatabaseValidation()
         
@@ -157,7 +158,7 @@ final class DatabaseValidation : CoreDataValidation {
     }
 }
 
-final class DatabaseFetchRequest : CoreDataFetchRequest {
+fileprivate final class DatabaseFetchRequest : CoreDataFetchRequest {
     
     static let instance = DatabaseFetchRequest()
     
