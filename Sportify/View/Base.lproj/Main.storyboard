@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1WU-EE-TrV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1WU-EE-TrV">
     <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lr-SD-6mQ">
-                                <rect key="frame" x="10" y="129.99999999999997" width="181" height="308.33333333333326"/>
+                                <rect key="frame" x="10" y="192" width="181" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="don.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-DV-9So">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="308.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="sju-ov-hVZ" appends="YES" id="7eQ-Iv-VKq"/>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Football" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="879-MP-1dx">
-                                        <rect key="frame" x="0.0" y="268.33333333333331" width="181" height="40"/>
+                                        <rect key="frame" x="0.0" y="225" width="181" height="40"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="X3Z-Nn-0qY"/>
@@ -49,17 +49,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJR-Jo-Mc8">
-                                <rect key="frame" x="211" y="129.99999999999997" width="181" height="308.33333333333326"/>
+                                <rect key="frame" x="211" y="192" width="181" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jordan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-Cl-DEC">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="308.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="veW-1h-XU1" appends="YES" id="8Np-wE-pID"/>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basketball" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz5-vO-vre">
-                                        <rect key="frame" x="0.0" y="268.33333333333331" width="181" height="40"/>
+                                        <rect key="frame" x="0.0" y="225" width="181" height="40"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="w9P-WP-W4K"/>
@@ -81,17 +81,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-IO-7RL">
-                                <rect key="frame" x="10" y="458.33333333333337" width="181" height="308.33333333333337"/>
+                                <rect key="frame" x="10" y="477" width="181" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="c5v-AN-ugC">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="308.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="bAJ-uA-ewH" appends="YES" id="4yd-oe-3vx"/>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cricket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q52-cC-MaW">
-                                        <rect key="frame" x="0.0" y="268.33333333333331" width="181" height="40"/>
+                                        <rect key="frame" x="0.0" y="225" width="181" height="40"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cj6-HY-kdM"/>
@@ -113,17 +113,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW0-er-VXM">
-                                <rect key="frame" x="211" y="458.33333333333337" width="181" height="308.33333333333337"/>
+                                <rect key="frame" x="211" y="477" width="181" height="265"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nadal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-25-6IG">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="308.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="pHo-vm-hyL" appends="YES" id="dJk-Sg-eWY"/>
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tennis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPt-IM-3Mk">
-                                        <rect key="frame" x="0.0" y="268.33333333333331" width="181" height="40"/>
+                                        <rect key="frame" x="0.0" y="225" width="181" height="40"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="omZ-Aq-Ho5"/>
@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="1911.9402985074626" y="3.432494279176201"/>
         </scene>
-        <!--Leagues Table View Controller-->
+        <!--Leagues-->
         <scene sceneID="Yoz-Wc-u84">
             <objects>
-                <tableViewController storyboardIdentifier="leagues" id="Ef2-KK-C3U" customClass="LeaguesTableViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="leagues" title="Leagues" id="Ef2-KK-C3U" customClass="LeaguesTableViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YdP-Ic-ahf">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +273,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="figure.badminton" catalog="system" id="3yJ-FD-Dcs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DyP-2V-LzH">
-                        <rect key="frame" x="0.0" y="62" width="402" height="44"/>
+                        <rect key="frame" x="0.0" y="124" width="402" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -311,7 +311,7 @@
                     <tabBarItem key="tabBarItem" title="Favourites" image="trophy.fill" catalog="system" id="Gwv-F7-36d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PQH-c0-1ac">
-                        <rect key="frame" x="0.0" y="62" width="402" height="44"/>
+                        <rect key="frame" x="0.0" y="124" width="402" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

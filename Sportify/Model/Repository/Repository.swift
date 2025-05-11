@@ -33,6 +33,15 @@ final class Repository : RepositoryProtocol {
         remoteDataSource.getAllFootballLeagues(completionHandler: completionHandler)
     }
 
+    func getAllBasketballLeagues(completionHandler: @escaping ([League]) -> Void) {
+        remoteDataSource.getAllBasketballLeagues(completionHandler: completionHandler)
+    }
     
+    func getAllTennisTournaments(completionHandler: @escaping ([League]) -> Void) {
+        remoteDataSource.getAllTennisTournaments(completionHandler: completionHandler)
+    }
     
+    func getAllCricketLeagues(completionHandler: @escaping ([League]) -> Void) {
+        remoteDataSource.getAllCricketLeagues(completionHandler: completionHandler)
+    }
 }
