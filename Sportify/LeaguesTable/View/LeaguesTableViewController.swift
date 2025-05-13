@@ -74,21 +74,33 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
         var chosenLeague : [League] = []
-        
+        let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
         switch selectedLeague {
             
         case .basketball:
             chosenLeague = basketballLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "nba.jpg"))
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "nba.jpg")?.rounded, options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale)
+            ])
         case .football :
             chosenLeague = footBallLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "conembol.png"))
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "conembol.png")?.rounded , options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale)
+            ])
         case .cricket :
             chosenLeague = cricket
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg"))
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg")?.rounded , options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale)
+            ])
         case .tennis :
             chosenLeague = tennisLeagues
-           cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "tennisPlaceholder.jpg"))
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "tennisPlaceholder.jpg")?.rounded , options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale)
+            ])
         case .none:
             chosenLeague = []
         }
@@ -101,6 +113,26 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         return 90
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
+        switch selectedLeague {
+        case .football:
+            vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
+            vc.leagueName = footBallLeagues[indexPath.row].leagueName
+        case .basketball:
+            vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
+            vc.leagueName = basketballLeagues[indexPath.row].leagueName
+        case .cricket:
+            vc.leagueKey = cricket[indexPath.row].leageueKey
+            vc.leagueName = cricket[indexPath.row].leagueName
+        case .tennis:
+            vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
+            vc.leagueName = tennisLeagues[indexPath.row].leagueName
+        case nil:
+            break
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
