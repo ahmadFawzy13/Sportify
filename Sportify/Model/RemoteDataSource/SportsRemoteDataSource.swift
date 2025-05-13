@@ -56,4 +56,8 @@ class SportsRemoteDataSource : RemoteDataSource {
     func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
         networkService.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
     }
+    
+    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
+        networkService.getFootballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    }
 }
