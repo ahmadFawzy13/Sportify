@@ -21,6 +21,94 @@ class League {
     }
 }
 
+class FootballEvents{
+    
+    var eventDate : String
+    var eventTime : String
+    var homeTeamLogo : String
+    var awayTeamLogo : String
+    var homeTeamName : String
+    var awayTeamName : String
+    var fulltimeResults : String
+    var leagueLogo : String
+    
+    init(json : JSON) {
+        self.eventDate = json["event_date"].stringValue
+        self.eventTime = json["event_time"].stringValue
+        self.homeTeamLogo = json["home_team_logo"].stringValue
+        self.awayTeamLogo = json["away_team_logo"].stringValue
+        self.homeTeamName = json["event_home_team"].stringValue
+        self.awayTeamName = json["event_away_team"].stringValue
+        self.fulltimeResults = json["event_ft_result"].stringValue
+        self.leagueLogo = json["league_logo"].stringValue
+    }
+}
+
+class CricketEvents{
+    
+    var eventDate : String
+    var eventTime : String
+    var homeTeamLogo : String
+    var awayTeamLogo : String
+    var homeTeamName : String
+    var awayTeamName : String
+    var fulltimeResults : String
+    
+    init(json : JSON) {
+        self.eventDate = json["event_date_start"].stringValue
+        self.eventTime = json["event_time"].stringValue
+        self.homeTeamLogo = json["event_home_team_logo"].stringValue
+        self.awayTeamLogo = json["event_away_team_logo"].stringValue
+        self.homeTeamName = json["event_home_team"].stringValue
+        self.awayTeamName = json["event_away_team"].stringValue
+        self.fulltimeResults = json["event_home_final_result"].stringValue
+    }
+}
+
+class BasketBallEvents{
+    
+    var eventDate : String
+    var eventTime : String
+    var homeTeamLogo : String
+    var awayTeamLogo : String
+    var homeTeamName : String
+    var awayTeamName : String
+    var fulltimeResults : String
+    
+    init(json : JSON) {
+        self.eventDate = json["event_date"].stringValue
+        self.eventTime = json["event_time"].stringValue
+        self.homeTeamLogo = json[ "event_home_team_logo"].stringValue
+        self.awayTeamLogo = json["event_away_team_logo"].stringValue
+        self.homeTeamName = json["event_home_team"].stringValue
+        self.awayTeamName = json["event_away_team"].stringValue
+        self.fulltimeResults = json["event_final_result"].stringValue
+    }
+}
+
+class TennisEvents{
+    
+    var eventDate : String
+    var eventTime : String
+    var playerOnePhoto : String
+    var playerTwoPhoto : String
+    var playerOneName : String
+    var playerTwoName : String
+    var matchResults : String
+    
+    init(json : JSON) {
+        self.eventDate = json["event_date"].stringValue
+        self.eventTime = json["event_time"].stringValue
+        self.playerOnePhoto = json["event_first_player_logo"].stringValue
+        self.playerTwoPhoto = json[ "event_second_player_logo"].stringValue
+        self.playerOneName = json["event_first_player"].stringValue
+        self.playerTwoName = json["event_second_player"].stringValue
+        self.matchResults = json["event_final_result"].stringValue
+    }
+}
+
+
+
 class LeagueDB {
     var id : String
     var name : String
