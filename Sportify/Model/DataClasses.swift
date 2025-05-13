@@ -44,6 +44,20 @@ class FootballEvents{
     }
 }
 
+class FootballTeam{
+    
+    var teamId : Int
+    var teamName : String
+    var teamLogo : String
+    
+    init(json : JSON) {
+        self.teamId = json["team_key"].intValue
+        self.teamName = json["team_name"].stringValue
+        self.teamLogo = json["team_logo"].stringValue
+    }
+    
+}
+
 class CricketEvents{
     
     var eventDate : String

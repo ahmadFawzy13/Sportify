@@ -42,4 +42,8 @@ class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
         repo.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
     }
     
+    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
+        repo.getFootballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
 }

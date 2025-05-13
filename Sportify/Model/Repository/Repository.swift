@@ -76,4 +76,8 @@ final class Repository : RepositoryProtocol {
     func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
         remoteDataSource.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
     }
+    
+    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
+        remoteDataSource.getFootballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    }
 }

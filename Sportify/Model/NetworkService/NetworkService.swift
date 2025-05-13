@@ -410,4 +410,36 @@ class NetworkService : NetworkServiceProtocol {
             }
     }
     
+    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
+     
+        var footballTeams : [FootballTeam] = []
+        
+        AF.request("\(EndPoint.upcomingFootballEvents.rawValue)\(leagueId)")
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successsful")
+                    guard let data = response.data else {return}
+                    do{
+                        let json = try JSON(data:data)
+                        let latestEvents = json["result"]
+                        for item in latestEvents.arrayValue{
+                            let event = FootballTeam(json: item)
+                            footballTeams.append(event)
+                        }
+                        completionHandle(footballTeams)
+                    }catch{
+                        completionHandle([])
+                        print("Error in latest events api : \(error)")
+                    }
+                case .failure :
+                    print("Error in latest events api")
+                    completionHandle([])
+                }
+                
+            }
+    }
+    
 }
