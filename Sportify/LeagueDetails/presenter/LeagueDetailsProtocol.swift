@@ -1,12 +1,8 @@
 import Foundation
 
 
-protocol RemoteDataSource{
+protocol LeagueDetailsPresenterProtocol{
     
-    func getAllFootballLeagues(completionHandler : @escaping ([League]) -> Void)
-    func getAllBasketballLeagues(completionHandler : @escaping ([League]) -> Void)
-    func getAllTennisTournaments(completionHandler : @escaping ([League]) -> Void)
-    func getAllCricketLeagues(completionHandler : @escaping ([League]) -> Void)
     func getFootballLatestEventsById(completionHandle: @escaping ([FootballEvents]) -> Void, leagueId : Int)
     func getBasketballLatestEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int)
     func getTennisLatestEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int)
@@ -15,4 +11,5 @@ protocol RemoteDataSource{
     func getBasketballUpcomingEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int)
     func getTennisUpcomingEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int)
     func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int)
+    
 }

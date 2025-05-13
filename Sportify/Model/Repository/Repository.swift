@@ -1,7 +1,7 @@
 import Foundation
 
 
-//Hnzwd kman interface (Remote) el Remote data source hy3mlo condform w el repo brdo
+
 final class Repository : RepositoryProtocol {
     
     static let instance = Repository()
@@ -43,5 +43,37 @@ final class Repository : RepositoryProtocol {
     
     func getAllCricketLeagues(completionHandler: @escaping ([League]) -> Void) {
         remoteDataSource.getAllCricketLeagues(completionHandler: completionHandler)
+    }
+    
+    func getFootballLatestEventsById(completionHandle: @escaping ([FootballEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getFootballLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getBasketballLatestEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getBasketballLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getTennisLatestEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int) {
+        remoteDataSource.getTennisLatestEventsById(completionHandle: completionHandle, tournamentId: tournamentId)
+    }
+    
+    func getCricketLatestEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getCricketLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getFootballUpcomingEventsById(completionHandle: @escaping ([FootballEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getFootballUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getBasketballUpcomingEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getBasketballUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getTennisUpcomingEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int) {
+        remoteDataSource.getTennisUpcomingEventsById(completionHandle: completionHandle, tournamentId: tournamentId)
+    }
+    
+    func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
+        remoteDataSource.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
     }
 }
