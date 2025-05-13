@@ -117,13 +117,17 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
         switch selectedLeague {
         case .football:
-            vc.leagueKey = footBallLeagues[indexPath.row].leageueKey 
+            vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
+            vc.leagueName = footBallLeagues[indexPath.row].leagueName
         case .basketball:
             vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
+            vc.leagueName = basketballLeagues[indexPath.row].leagueName
         case .cricket:
             vc.leagueKey = cricket[indexPath.row].leageueKey
+            vc.leagueName = cricket[indexPath.row].leagueName
         case .tennis:
             vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
+            vc.leagueName = tennisLeagues[indexPath.row].leagueName
         case nil:
             break
         }

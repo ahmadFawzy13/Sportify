@@ -221,7 +221,7 @@
             </objects>
             <point key="canvasLocation" x="2798" y="-1"/>
         </scene>
-        <!--Leagues Details Collection View-->
+        <!--Title-->
         <scene sceneID="hnt-zV-A3z">
             <objects>
                 <collectionViewController storyboardIdentifier="leagueDetails" id="hNy-dH-ihR" customClass="LeaguesDetailsCollectionView" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
@@ -383,6 +383,16 @@
                             <outlet property="delegate" destination="hNy-dH-ihR" id="orb-3D-x16"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Title" id="RjU-cH-uBc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart.fill" catalog="system" id="y1k-iy-vlI">
+                            <connections>
+                                <action selector="addTofavouriteAction:" destination="hNy-dH-ihR" id="mV2-em-vgF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addToFavouriteButton" destination="y1k-iy-vlI" id="uMH-MU-D1i"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBi-sn-dO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,6 +507,7 @@
         <image name="cricket.jpg" width="770" height="513"/>
         <image name="don.jpg" width="1250" height="833"/>
         <image name="figure.badminton" catalog="system" width="118" height="128"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="jordan.jpg" width="965" height="1500"/>
         <image name="nadal.jpg" width="2560" height="1707"/>
         <image name="trophy.fill" catalog="system" width="128" height="128"/>
