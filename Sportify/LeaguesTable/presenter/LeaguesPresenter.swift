@@ -2,8 +2,7 @@ import Foundation
 
 class LeaguesPresenter : LeaguesPresenterProtocol {
     
-    
-    
+
     var repository : RepositoryProtocol
     private var leaguesTableDelegate : LeaguesTableDelegate?
     

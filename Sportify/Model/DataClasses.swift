@@ -44,7 +44,7 @@ class FootballEvents{
     }
 }
 
-class FootballTeam{
+class Team{
     
     var teamId : Int
     var teamName : String

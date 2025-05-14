@@ -119,15 +119,19 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         case .football:
             vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
             vc.leagueName = footBallLeagues[indexPath.row].leagueName
+            vc.selectedLeague = .football
         case .basketball:
             vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
             vc.leagueName = basketballLeagues[indexPath.row].leagueName
+            vc.selectedLeague = .basketball
         case .cricket:
             vc.leagueKey = cricket[indexPath.row].leageueKey
             vc.leagueName = cricket[indexPath.row].leagueName
+            vc.selectedLeague = .cricket
         case .tennis:
             vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
             vc.leagueName = tennisLeagues[indexPath.row].leagueName
+            vc.selectedLeague = .tennis
         case nil:
             break
         }

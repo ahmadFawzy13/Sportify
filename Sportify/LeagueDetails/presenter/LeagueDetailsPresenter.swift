@@ -5,45 +5,91 @@ import Foundation
 class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
     
     let repo : RepositoryProtocol
+    private var leagueDetailsDelegate : LeaguesDetailsDelegate?
     
     init() {
         self.repo = Repository.instance
     }
     
-    func getFootballLatestEventsById(completionHandle: @escaping ([FootballEvents]) -> Void, leagueId: Int) {
-        repo.getFootballLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func attachView(view : LeaguesDetailsDelegate ){
+        self.leagueDetailsDelegate = view
     }
     
-    func getBasketballLatestEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int) {
-        repo.getBasketballLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func getFootballLatestEventsById(leagueId: Int) {
+        repo.getFootballLatestEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getFootballLatestEvents(result: result)
+        }, leagueId: leagueId)
     }
     
-    func getTennisLatestEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int) {
-        repo.getTennisLatestEventsById(completionHandle: completionHandle, tournamentId: tournamentId)
+    func getBasketballLatestEventsById(leagueId: Int) {
+        repo.getBasketballLatestEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getBasketballLatestEvents(result: result)
+        }, leagueId: leagueId)
     }
     
-    func getCricketLatestEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
-        repo.getCricketLatestEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func getTennisLatestEventsById(tournamentId: Int) {
+        repo.getTennisLatestEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getTennisLatestEvents(result: result)
+        }, tournamentId: tournamentId)
     }
     
-    func getFootballUpcomingEventsById(completionHandle: @escaping ([FootballEvents]) -> Void, leagueId: Int) {
-        repo.getFootballUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func getCricketLatestEventsById(leagueId: Int) {
+        repo.getCricketLatestEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getCricketLatestEvents(result: result)
+        }, leagueId: leagueId)
     }
     
-    func getBasketballUpcomingEventsById(completionHandle: @escaping ([BasketBallEvents]) -> Void, leagueId: Int) {
-        repo.getBasketballUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func getFootballUpcomingEventsById(leagueId: Int) {
+        repo.getFootballUpcomingEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getFootballUpcomingEvents(result: result)
+        }, leagueId: leagueId)
     }
     
-    func getTennisUpcomingEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int) {
-        repo.getTennisUpcomingEventsById(completionHandle: completionHandle, tournamentId: tournamentId)
+    func getBasketballUpcomingEventsById(leagueId: Int) {
+        repo.getBasketballUpcomingEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getBasketballUpcomingEvents(result: result)
+        }, leagueId: leagueId)
     }
     
-    func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int) {
-        repo.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
+    func getTennisUpcomingEventsById(tournamentId: Int) {
+        repo.getTennisUpcomingEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getTennisUpcomingEvents(result: result)
+        }, tournamentId: tournamentId)
     }
     
-    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
-        repo.getFootballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    func getCricketUpcomingEventsById(leagueId: Int) {
+        repo.getCricketUpcomingEventsById(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getCricketUpcomingEvents(result: result)
+        }, leagueId: leagueId)
     }
     
+    func getFootballTeamsByLeagueId(leagueId: Int) {
+        repo.getFootballTeamsByLeagueId(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getFootballTeams(result: result)
+        }, leagueId: leagueId)
+    }
+    
+    func getBasketballTeamsByLeagueId( leagueId: Int){
+        repo.getBasketballTeamsByLeagueId(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getBasketballTeams(result: result)
+        }, leagueId: leagueId)
+    }
+    
+    func getCricketTeamsByLeagueId( leagueId: Int){
+        repo.getCricketTeamsByLeagueId(completionHandle: {[weak self]
+            result in
+            self?.leagueDetailsDelegate?.getCricketTeams(result: result)
+        }, leagueId: leagueId)
+    }
+
 }
