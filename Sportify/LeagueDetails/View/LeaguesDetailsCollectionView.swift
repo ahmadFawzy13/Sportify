@@ -12,13 +12,17 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     var selectedLeague : Selectedleague?
     
     var footballUpcomingEvents : [FootballEvents] = []
+    var footballLatestEvents : [FootballEvents] = []
+    
     var basketBallUpcomingEvents : [BasketBallEvents] = []
-    var tennisUpcomingEvents : [TennisEvents] = []
+    var basketballLatestEvents : [BasketBallEvents] = []
+
     var cricketUpcomingEvents : [CricketEvents] = []
     var cricketLatestEvents : [CricketEvents] = []
-    var footballLatestEvents : [FootballEvents] = []
-    var basketballLatestEvents : [BasketBallEvents] = []
+    
     var tennisLatestEvents : [TennisEvents] = []
+    var tennisUpcomingEvents : [TennisEvents] = []
+
     var team : [Team] = []
     
     var leagueKey : Int?
@@ -40,12 +44,14 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         
         leaguesDetailsPresenter?.getBasketballLatestEventsById(leagueId: leagueKey)
         leaguesDetailsPresenter?.getBasketballUpcomingEventsById(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getBasketballTeamsByLeagueId(leagueId: leagueKey)
         
         leaguesDetailsPresenter?.getTennisLatestEventsById(tournamentId: leagueKey)
         leaguesDetailsPresenter?.getTennisUpcomingEventsById(tournamentId: leagueKey)
         
         leaguesDetailsPresenter?.getCricketLatestEventsById(leagueId: leagueKey)
         leaguesDetailsPresenter?.getCricketUpcomingEventsById(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getCricketTeamsByLeagueId(leagueId: leagueKey)
         
         let layout = UICollectionViewCompositionalLayout{
             sectionIndex , environment in
@@ -72,14 +78,34 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
+        var sectionOneCount: Int = 0
+        var sectionTwoCount: Int = 0
+        
+        switch selectedLeague {
+        case .football:
+            sectionOneCount = footballUpcomingEvents.count
+            sectionTwoCount = footballLatestEvents.count
+        case .basketball:
+            sectionOneCount = basketBallUpcomingEvents.count
+            sectionTwoCount = basketballLatestEvents.count
+        case .cricket:
+            sectionOneCount = cricketUpcomingEvents.count
+            sectionTwoCount = cricketLatestEvents.count
+        case .tennis:
+            sectionOneCount = tennisUpcomingEvents.count
+            sectionTwoCount = tennisLatestEvents.count
+        case nil:
+            break
+        }
+        
         switch (section){
         case 0:
-            return 10
+            return sectionOneCount
         case 1:
-            return 15
+            return sectionTwoCount
         case 2:
-            return 10
+            return team.count
         default:
             return 1
         }
@@ -95,6 +121,41 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.backgroundLogo.image = UIImage(named: "background.jpg")
             cell.backgroundLogo.alpha = 0.5
+            switch selectedLeague {
+            case .football:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: footballUpcomingEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: footballUpcomingEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = footballUpcomingEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = footballUpcomingEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = footballUpcomingEvents[indexPath.row].eventDate
+                cell.matchTime.text = footballUpcomingEvents[indexPath.row].eventTime
+                
+            case .basketball:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: basketBallUpcomingEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: basketBallUpcomingEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = basketBallUpcomingEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = basketBallUpcomingEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = basketBallUpcomingEvents[indexPath.row].eventDate
+                cell.matchTime.text = basketBallUpcomingEvents[indexPath.row].eventTime
+                
+            case .cricket:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: cricketUpcomingEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: cricketUpcomingEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = cricketUpcomingEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = cricketUpcomingEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = cricketUpcomingEvents[indexPath.row].eventDate
+                cell.matchTime.text = cricketUpcomingEvents[indexPath.row].eventTime
+                
+            case .tennis:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: tennisUpcomingEvents[indexPath.row].playerOnePhoto) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: tennisUpcomingEvents[indexPath.row].playerTwoPhoto) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = tennisUpcomingEvents[indexPath.row].playerOneName
+                cell.firstTeamName.text = tennisUpcomingEvents[indexPath.row].playerTwoName
+                cell.matchDate.text = tennisUpcomingEvents[indexPath.row].eventDate
+                cell.matchTime.text = tennisUpcomingEvents[indexPath.row].eventTime
+            case nil:
+                break
+            }
             return cell
         case 1:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchCellIdentifier, for: indexPath) as! MatchesCell
@@ -103,10 +164,51 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.backgroundLogo.image = UIImage(named: "background2.jpeg")
             cell.backgroundLogo.alpha = 0.5
+            switch selectedLeague {
+            case .football:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: footballLatestEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: footballLatestEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = footballLatestEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = footballLatestEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = footballLatestEvents[indexPath.row].eventDate
+                cell.matchTime.text = footballLatestEvents[indexPath.row].eventTime
+                cell.matchResult.text = footballLatestEvents[indexPath.row].fulltimeResults
+                
+            case .basketball:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: basketballLatestEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: basketballLatestEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = basketballLatestEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = basketballLatestEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = basketballLatestEvents[indexPath.row].eventDate
+                cell.matchTime.text = basketballLatestEvents[indexPath.row].eventTime
+                cell.matchResult.text = basketballLatestEvents[indexPath.row].fulltimeResults
+                
+            case .cricket:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: cricketLatestEvents[indexPath.row].homeTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: cricketLatestEvents[indexPath.row].awayTeamLogo) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = cricketLatestEvents[indexPath.row].homeTeamName
+                cell.firstTeamName.text = cricketLatestEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = cricketLatestEvents[indexPath.row].eventDate
+                cell.matchTime.text = cricketLatestEvents[indexPath.row].eventTime
+                cell.matchResult.text = cricketLatestEvents[indexPath.row].fulltimeResults
+                
+            case .tennis:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: tennisLatestEvents[indexPath.row].playerOnePhoto) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: tennisLatestEvents[indexPath.row].playerTwoPhoto) , placeholder: UIImage(named: "teanPlaceholder.jpg"))
+                cell.firstTeamName.text = tennisLatestEvents[indexPath.row].playerOneName
+                cell.firstTeamName.text = tennisLatestEvents[indexPath.row].playerTwoName
+                cell.matchDate.text = tennisLatestEvents[indexPath.row].eventDate
+                cell.matchTime.text = tennisLatestEvents[indexPath.row].eventTime
+                cell.matchResult.text = tennisLatestEvents[indexPath.row].matchResults
+                
+            case nil:
+                break
+            }
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: teamsCellIdentifier, for: indexPath) as! TeamsCell
             cell.teamLogo.image = cell.teamLogo.image?.rounded
+            cell.teamLogo.kf.setImage(with: URL(string: team[indexPath.row].teamLogo) , placeholder: UIImage(named: "teamPlaceholder.jpg"))
             return cell
         default:
             return UICollectionViewCell()
@@ -213,45 +315,56 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     
     func getFootballLatestEvents(result: [FootballEvents]) {
         footballLatestEvents = result
+        self.collectionView.reloadData()
     }
     
     func getBasketballLatestEvents(result: [BasketBallEvents]) {
         basketballLatestEvents = result
+        self.collectionView.reloadData()
     }
     
     func getTennisLatestEvents(result: [TennisEvents]) {
         tennisLatestEvents = result
+        self.collectionView.reloadData()
     }
     
     func getCricketLatestEvents(result: [CricketEvents]) {
         cricketLatestEvents = result
+        self.collectionView.reloadData()
     }
     
     func getFootballUpcomingEvents(result: [FootballEvents]) {
         footballUpcomingEvents = result
+        self.collectionView.reloadData()
     }
     
     func getBasketballUpcomingEvents(result: [BasketBallEvents]) {
         basketBallUpcomingEvents = result
+        self.collectionView.reloadData()
     }
     
     func getTennisUpcomingEvents(result: [TennisEvents]) {
         tennisUpcomingEvents = result
+        self.collectionView.reloadData()
     }
     
     func getCricketUpcomingEvents(result: [CricketEvents]) {
         cricketUpcomingEvents = result
+        self.collectionView.reloadData()
     }
     
     func getFootballTeams(result: [Team]) {
         team = result
+        self.collectionView.reloadData()
     }
     func getBasketballTeams(result: [Team]) {
         team = result
+        self.collectionView.reloadData()
     }
     
     func getCricketTeams(result: [Team]) {
         team = result
+        self.collectionView.reloadData()
     }
     
 }
