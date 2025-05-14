@@ -9,6 +9,7 @@ import UIKit
 
 class MatchesCell: UICollectionViewCell {
     
+    @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var matchResult: UILabel!
     @IBOutlet weak var secondTeamName: UILabel!
     @IBOutlet weak var firstTeamName: UILabel!

@@ -77,7 +77,15 @@ final class Repository : RepositoryProtocol {
         remoteDataSource.getCricketUpcomingEventsById(completionHandle: completionHandle, leagueId: leagueId)
     }
     
-    func getFootballTeamsByLeagueId(completionHandle: @escaping ([FootballTeam]) -> Void, leagueId: Int) {
+    func getFootballTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int) {
         remoteDataSource.getFootballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getBasketballTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int){
+        remoteDataSource.getBasketballTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
+    }
+    
+    func getCricketTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int){
+        remoteDataSource.getCricketTeamsByLeagueId(completionHandle: completionHandle, leagueId: leagueId)
     }
 }

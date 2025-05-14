@@ -4,14 +4,49 @@ import UIKit
 private let matchCellIdentifier = "matchCell"
 private let teamsCellIdentifier = "teamsCell"
 
-class LeaguesDetailsCollectionView: UICollectionViewController {
+class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsDelegate {
+   
     @IBOutlet weak var addToFavouriteButton: UIBarButtonItem!
+    
+    var leaguesDetailsPresenter : LeagueDetailsPresenter?
+    var selectedLeague : Selectedleague?
+    
+    var footballUpcomingEvents : [FootballEvents] = []
+    var basketBallUpcomingEvents : [BasketBallEvents] = []
+    var tennisUpcomingEvents : [TennisEvents] = []
+    var cricketUpcomingEvents : [CricketEvents] = []
+    var cricketLatestEvents : [CricketEvents] = []
+    var footballLatestEvents : [FootballEvents] = []
+    var basketballLatestEvents : [BasketBallEvents] = []
+    var tennisLatestEvents : [TennisEvents] = []
+    var team : [Team] = []
     
     var leagueKey : Int?
     var leagueName : String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        leaguesDetailsPresenter = LeagueDetailsPresenter()
+        leaguesDetailsPresenter?.attachView(view: self)
+        
+        guard let leagueKey = leagueKey else {
+            print("invalid league key")
+            return
+        }
+        
+        leaguesDetailsPresenter?.getFootballTeamsByLeagueId(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getFootballLatestEventsById(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getFootballUpcomingEventsById(leagueId: leagueKey)
+        
+        leaguesDetailsPresenter?.getBasketballLatestEventsById(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getBasketballUpcomingEventsById(leagueId: leagueKey)
+        
+        leaguesDetailsPresenter?.getTennisLatestEventsById(tournamentId: leagueKey)
+        leaguesDetailsPresenter?.getTennisUpcomingEventsById(tournamentId: leagueKey)
+        
+        leaguesDetailsPresenter?.getCricketLatestEventsById(leagueId: leagueKey)
+        leaguesDetailsPresenter?.getCricketUpcomingEventsById(leagueId: leagueKey)
+        
         let layout = UICollectionViewCompositionalLayout{
             sectionIndex , environment in
             switch sectionIndex {
@@ -58,14 +93,16 @@ class LeaguesDetailsCollectionView: UICollectionViewController {
             cell.matchResult.isHidden = true
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
-            cell.contentView.backgroundColor = .red
+            cell.backgroundLogo.image = UIImage(named: "background.jpg")
+            cell.backgroundLogo.alpha = 0.5
             return cell
         case 1:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchCellIdentifier, for: indexPath) as! MatchesCell
             cell.matchResult.isHidden = false
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
-            cell.contentView.backgroundColor = .blue
+            cell.backgroundLogo.image = UIImage(named: "background2.jpeg")
+            cell.backgroundLogo.alpha = 0.5
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: teamsCellIdentifier, for: indexPath) as! TeamsCell
@@ -170,8 +207,51 @@ class LeaguesDetailsCollectionView: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
-
     @IBAction func addTofavouriteAction(_ sender: UIBarButtonItem) {
         
     }
+    
+    func getFootballLatestEvents(result: [FootballEvents]) {
+        footballLatestEvents = result
+    }
+    
+    func getBasketballLatestEvents(result: [BasketBallEvents]) {
+        basketballLatestEvents = result
+    }
+    
+    func getTennisLatestEvents(result: [TennisEvents]) {
+        tennisLatestEvents = result
+    }
+    
+    func getCricketLatestEvents(result: [CricketEvents]) {
+        cricketLatestEvents = result
+    }
+    
+    func getFootballUpcomingEvents(result: [FootballEvents]) {
+        footballUpcomingEvents = result
+    }
+    
+    func getBasketballUpcomingEvents(result: [BasketBallEvents]) {
+        basketBallUpcomingEvents = result
+    }
+    
+    func getTennisUpcomingEvents(result: [TennisEvents]) {
+        tennisUpcomingEvents = result
+    }
+    
+    func getCricketUpcomingEvents(result: [CricketEvents]) {
+        cricketUpcomingEvents = result
+    }
+    
+    func getFootballTeams(result: [Team]) {
+        team = result
+    }
+    func getBasketballTeams(result: [Team]) {
+        team = result
+    }
+    
+    func getCricketTeams(result: [Team]) {
+        team = result
+    }
+    
 }

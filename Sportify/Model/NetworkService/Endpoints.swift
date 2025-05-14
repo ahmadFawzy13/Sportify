@@ -27,4 +27,10 @@ enum EndPoint : String{
         "https://apiv2.allsportsapi.com/cricket/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-04-20&to=2025-05-12&leagueId=" //leagueId
     case latestTennisEvents =
         "https://apiv2.allsportsapi.com/tennis/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2024-06-01&to=2024-06-30&leagueId="//leagueId
+    case footballTeams =
+        "https://apiv2.allsportsapi.com/football/?&met=Teams&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&leagueId="
+    case basketballTeams =
+            "https://apiv2.allsportsapi.com/basketball/?&met=Teams&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&leagueId="
+    case cricketTeams =
+            "https://apiv2.allsportsapi.com/cricket/?&met=Teams&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&leagueId="
 }
