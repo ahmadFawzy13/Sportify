@@ -49,13 +49,27 @@ class Team{
     var teamId : Int
     var teamName : String
     var teamLogo : String
+    var players  : [Player]
     
     init(json : JSON) {
         self.teamId = json["team_key"].intValue
         self.teamName = json["team_name"].stringValue
         self.teamLogo = json["team_logo"].stringValue
+        self.players = json["players"].arrayValue.map{Player(json: $0)}
     }
     
+}
+
+class Player {
+    var playerId : Int
+    var playerImg : String
+    var playerName : String
+    
+    init(json : JSON) {
+        self.playerId = json["player_key"].intValue
+        self.playerImg = json["player_image"].stringValue
+        self.playerName = json["player_name"].stringValue
+    }
 }
 
 class CricketEvents{
@@ -133,5 +147,4 @@ class LeagueDB {
         self.name = name
         self.logo = logo
     }
-    
 }

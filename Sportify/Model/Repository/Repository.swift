@@ -1,9 +1,7 @@
 import Foundation
 
-
-
 final class Repository : RepositoryProtocol {
-    
+   
     static let instance = Repository()
     private let localdataSource : LocalDataSource
     private let remoteDataSource : RemoteDataSource
@@ -27,6 +25,22 @@ final class Repository : RepositoryProtocol {
     
     func deleteAllLeagues(){
         localdataSource.deleteAllLeagues()
+    }
+    
+    func getFootballUpcomingEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int) {
+        remoteDataSource.getFootballUpcomingEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int) {
+        remoteDataSource.getFootballLatestEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getBasketballUpcomingEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        remoteDataSource.getBasketballUpcomingEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getBasketballLatestEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        remoteDataSource.getBasketballLatestEventsByTeam(completionHandle: completionHandle, teamId: teamId)
     }
     
     func getAllFootballLeagues(completionHandler : @escaping ([League]) -> Void){

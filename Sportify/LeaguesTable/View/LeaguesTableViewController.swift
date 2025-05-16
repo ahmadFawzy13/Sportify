@@ -8,7 +8,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     var footBallLeagues : [League] = []
     var basketballLeagues : [League] = []
     var tennisLeagues : [League] = []
-    var cricket : [League] = []
+    var cricketLeagues : [League] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +18,19 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         
         leaguePresenter.attachView(leaguesTableProtocol: self)
-        leaguePresenter.getAllFootballLeagues()
-        leaguePresenter.getAllBasketballLeagues()
-        leaguePresenter.getAllTennisLeagues()
-        leaguePresenter.getAllCricketLeagues()
-        
+        switch selectedLeague {
+        case .football:
+            leaguePresenter.getAllFootballLeagues()
+        case .basketball:
+            leaguePresenter.getAllBasketballLeagues()
+        case .cricket:
+            leaguePresenter.getAllCricketLeagues()
+        case .tennis:
+            leaguePresenter.getAllTennisLeagues()
+        case .none:
+            print("none")
+        }
     }
-    
     
     func getAllFootballLeagues(leagues: [League]) {
         footBallLeagues = leagues
@@ -43,12 +49,11 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     
     
     func getAllCricketLeagues(leagues: [League]) {
-        cricket = leagues
+        cricketLeagues = leagues
         tableView.reloadData()
     }
     
     
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -61,7 +66,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         case .basketball:
             return basketballLeagues.count
         case .cricket:
-            return cricket.count
+            return cricketLeagues.count
         case .tennis:
             return tennisLeagues.count
         case .none:
@@ -69,7 +74,6 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
@@ -90,7 +94,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
                 .scaleFactor(UIScreen.main.scale)
             ])
         case .cricket :
-            chosenLeague = cricket
+            chosenLeague = cricketLeagues
             cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg")?.rounded , options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale)
@@ -119,18 +123,22 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         case .football:
             vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
             vc.leagueName = footBallLeagues[indexPath.row].leagueName
+            vc.leagueLogo = footBallLeagues[indexPath.row].leagueLogo
             vc.selectedLeague = .football
         case .basketball:
             vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
             vc.leagueName = basketballLeagues[indexPath.row].leagueName
+            vc.leagueLogo = basketballLeagues[indexPath.row].leagueLogo
             vc.selectedLeague = .basketball
         case .cricket:
-            vc.leagueKey = cricket[indexPath.row].leageueKey
-            vc.leagueName = cricket[indexPath.row].leagueName
+            vc.leagueKey = cricketLeagues[indexPath.row].leageueKey
+            vc.leagueName = cricketLeagues[indexPath.row].leagueName
+            vc.leagueLogo = cricketLeagues[indexPath.row].leagueLogo
             vc.selectedLeague = .cricket
         case .tennis:
             vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
             vc.leagueName = tennisLeagues[indexPath.row].leagueName
+            vc.leagueLogo = tennisLeagues[indexPath.row].leagueLogo
             vc.selectedLeague = .tennis
         case nil:
             break

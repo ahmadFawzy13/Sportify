@@ -32,4 +32,12 @@ protocol RemoteDataSource{
     func getBasketballTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int)
     
     func getCricketTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int)
+    
+    func getFootballUpcomingEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int)
+        
+    func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId : Int)
+    
+    func getBasketballUpcomingEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int)
+    
+    func getBasketballLatestEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int)
 }
