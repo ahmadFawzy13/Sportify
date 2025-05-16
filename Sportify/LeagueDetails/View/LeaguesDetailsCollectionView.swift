@@ -27,6 +27,8 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     
     var leagueKey : Int?
     var leagueName : String?
+    var leagueDB : LeagueDB?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -310,7 +312,8 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     // MARK: UICollectionViewDelegate
 
     @IBAction func addTofavouriteAction(_ sender: UIBarButtonItem) {
-        
+        guard let leagueDB = leagueDB else {return}
+        leaguesDetailsPresenter?.insertLeague(league: leagueDB)
     }
     
     func getFootballLatestEvents(result: [FootballEvents]) {

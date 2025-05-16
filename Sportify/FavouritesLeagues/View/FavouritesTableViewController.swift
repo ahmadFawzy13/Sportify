@@ -1,35 +1,56 @@
 import UIKit
+import Kingfisher
 
-class FavouritesTableViewController: UITableViewController {
-
+class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDelegate{
+    
+    var favouriteLeaguesPresenter = FavouriteLeaguesPresenter()
+    var favouriteLeagues: [LeagueDB] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        
+        let nib = UINib(nibName: "LeaguesCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "nibCell")
+        favouriteLeaguesPresenter.attatchView(favouriteLeagueDelegate: self)
+        favouriteLeaguesPresenter.getAllFavouriteLeagues()
     }
 
+    
+    func getAllFavouriteLeagues(leagues: [LeagueDB]) {
+        favouriteLeagues = leagues
+        tableView.reloadData()
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return favouriteLeagues.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath)
+                as! LeaguesCell
+        let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
+        cell.leagueTitle.text = favouriteLeagues[indexPath.row].name
+        cell.leagueLogo.kf.setImage(with: URL(string: favouriteLeagues[indexPath.row].logo),placeholder: UIImage(named: "sport.jpg")?.rounded, options: [
+            .processor(processor),
+            .scaleFactor(UIScreen.main.scale)
+        ])
 
         return cell
     }
-    */
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -38,17 +59,18 @@ class FavouritesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            favouriteLeaguesPresenter.deleteFavouriteLeague(league: favouriteLeagues[indexPath.row])
+            favouriteLeagues.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

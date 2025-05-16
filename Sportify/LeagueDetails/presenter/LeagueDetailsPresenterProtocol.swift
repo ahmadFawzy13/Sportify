@@ -24,4 +24,6 @@ protocol LeagueDetailsPresenterProtocol{
     func getBasketballTeamsByLeagueId( leagueId: Int)
     
     func getCricketTeamsByLeagueId( leagueId: Int)
+    
+    func insertLeague(league : LeagueDB)
 }

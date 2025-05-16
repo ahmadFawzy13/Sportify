@@ -9,12 +9,12 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     var basketballLeagues : [League] = []
     var tennisLeagues : [League] = []
     var cricket : [League] = []
+    var leagueDB : LeagueDB?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
-        
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         
         leaguePresenter.attachView(leaguesTableProtocol: self)
@@ -117,18 +117,34 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
         switch selectedLeague {
         case .football:
+            leagueDB = LeagueDB(id: footBallLeagues[indexPath.row].leageueKey
+                       ,name: footBallLeagues[indexPath.row].leagueName,
+                        logo: footBallLeagues[indexPath.row].leagueLogo)
+            vc.leagueDB = leagueDB
             vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
             vc.leagueName = footBallLeagues[indexPath.row].leagueName
             vc.selectedLeague = .football
         case .basketball:
+            leagueDB = LeagueDB(id: basketballLeagues[indexPath.row].leageueKey
+                       ,name: basketballLeagues[indexPath.row].leagueName,
+                        logo: basketballLeagues[indexPath.row].leagueLogo)
+            vc.leagueDB = leagueDB
             vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
             vc.leagueName = basketballLeagues[indexPath.row].leagueName
             vc.selectedLeague = .basketball
         case .cricket:
+            leagueDB = LeagueDB(id: cricket[indexPath.row].leageueKey
+                       ,name: cricket[indexPath.row].leagueName,
+                        logo: cricket[indexPath.row].leagueLogo)
+            vc.leagueDB = leagueDB
             vc.leagueKey = cricket[indexPath.row].leageueKey
             vc.leagueName = cricket[indexPath.row].leagueName
             vc.selectedLeague = .cricket
         case .tennis:
+            leagueDB = LeagueDB(id: tennisLeagues[indexPath.row].leageueKey
+                       ,name: tennisLeagues[indexPath.row].leagueName,
+                        logo: tennisLeagues[indexPath.row].leagueLogo)
+            vc.leagueDB = leagueDB
             vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
             vc.leagueName = tennisLeagues[indexPath.row].leagueName
             vc.selectedLeague = .tennis
