@@ -1,5 +1,6 @@
 import UIKit
 import Kingfisher
+import SwiftMessages
 
 class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDelegate{
     
@@ -64,37 +65,27 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            favouriteLeaguesPresenter.deleteFavouriteLeague(league: favouriteLeagues[indexPath.row])
-            favouriteLeagues.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            showNegativeAlert(league: favouriteLeagues[indexPath.row] ,indexPath: indexPath)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    func showNegativeAlert(league : LeagueDB , indexPath : IndexPath){
+        let view = MessageView.viewFromNib(layout: .centeredView)
+        view.configureTheme(.warning)
+        view.configureDropShadow()
+        view.configureContent(title: "Deletion Warning", body: "Are you sure you want to Delete this league from favourites !", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Delete", buttonTapHandler: {
+            _ in
+            self.favouriteLeaguesPresenter.deleteFavouriteLeague(league: league)
+            self.favouriteLeagues.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            SwiftMessages.hide(animated: true)
+        })
+        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+        view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        SwiftMessages.show(view: view)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

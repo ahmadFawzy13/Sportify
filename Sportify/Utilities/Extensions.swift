@@ -41,13 +41,13 @@ extension UIView : @retroactive CAAnimationDelegate{
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = [-1.0, -0.5, 0.0]
         animation.toValue = [1.0, 1.5, 2.0]
-        animation.repeatCount = 2
+        animation.repeatCount = 1.5
         animation.duration = 0.9
         animation.delegate = self
         gradientLayer.add(animation, forKey: animation.keyPath)
     }
     
-    func stopShimmeringViewAnimation() {
+    private func stopShimmeringViewAnimation() {
            if let sublayers = self.layer.sublayers {
                for layer in sublayers {
                    if layer.name == shimmerLayerName {

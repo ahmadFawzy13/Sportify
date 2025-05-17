@@ -78,7 +78,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
-        startShimmerEffectForLeagueCell(cell: cell)
+        
         
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
@@ -112,7 +112,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
             chosenLeague = []
         }
         cell.leagueTitle.text = chosenLeague[indexPath.row].leagueName
-        
+        startShimmerEffectForLeagueCell(cell: cell)
         return cell
     }
     
@@ -173,6 +173,8 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
             self.animate = false
         }
     }
+    
+    
     
     /*
     // Override to support conditional editing of the table view.

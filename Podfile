@@ -8,5 +8,5 @@ target 'Sportify' do
 	pod 'Alamofire'
 	pod 'SwiftyJSON'
 	pod 'Kingfisher', '~> 7.0'
-	pod 'UIView-Shimmer', '~> 1.0'
+	pod 'SwiftMessages'
 end

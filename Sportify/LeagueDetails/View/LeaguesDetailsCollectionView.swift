@@ -1,5 +1,6 @@
 
 import UIKit
+import SwiftMessages
 
 private let matchCellIdentifier = "matchCell"
 private let teamsCellIdentifier = "teamsCell"
@@ -125,7 +126,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
             
-                startShimmeringEffectForMatchCell(cell: cell)
+                
                 
             switch selectedLeague {
             case .football:
@@ -162,6 +163,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             case nil:
                 break
             }
+            startShimmeringEffectForMatchCell(cell: cell)
             return cell
         case 1:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchCellIdentifier, for: indexPath) as! MatchesCell
@@ -169,8 +171,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
             
-                startShimmeringEffectForMatchCell(cell: cell)
-            
+               
             switch selectedLeague {
             case .football:
                 cell.firstTeamLogo.kf.setImage(with: URL(string: footballLatestEvents[indexPath.row].homeTeamLogo))
@@ -211,14 +212,14 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             case nil:
                 break
             }
+            startShimmeringEffectForMatchCell(cell: cell)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: teamsCellIdentifier, for: indexPath) as! TeamsCell
             cell.teamLogo.image = cell.teamLogo.image?.rounded
             cell.teamLogo.kf.setImage(with: URL(string: team[indexPath.row].teamLogo))
             
-                startShimmeringEffectForTeamsCell(cell: cell)
-            
+            startShimmeringEffectForTeamsCell(cell: cell)
             return cell
         default:
             return UICollectionViewCell()
@@ -261,7 +262,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1/3)),
+                heightDimension: .fractionalHeight(1/4)),
             subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         let section = NSCollectionLayoutSection(group: group)
@@ -322,6 +323,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     @IBAction func addTofavouriteAction(_ sender: UIBarButtonItem) {
         guard let leagueDB = leagueDB else {return}
         leaguesDetailsPresenter?.insertLeague(league: leagueDB)
+        showPositiveAlert()
     }
     
     func getFootballLatestEvents(result: [FootballEvents]) {
@@ -411,5 +413,16 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.animate = false
         }
+    }
+    
+    func showPositiveAlert(){
+        let view = MessageView.viewFromNib(layout: .centeredView)
+        view.configureTheme(.success)
+        view.configureDropShadow()
+        view.button?.isHidden = true
+        view.configureContent(title : "Insertion Success",body: "Your League has been added successfully !")
+        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+        view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        SwiftMessages.show(view: view)
     }
 }
