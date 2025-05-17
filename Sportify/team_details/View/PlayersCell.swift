@@ -1,12 +1,7 @@
-//
-//  PlayersCell.swift
-//  Sportify
-//
-//  Created by Ahmad Fawzy on 15/05/2025.
-//
-
 import UIKit
 
 class PlayersCell: UICollectionViewCell {
+    @IBOutlet weak var playerImg: UIImageView!
     
+    @IBOutlet weak var playerName: UILabel!
 }

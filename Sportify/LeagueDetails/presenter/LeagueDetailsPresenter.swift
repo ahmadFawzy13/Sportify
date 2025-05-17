@@ -4,7 +4,7 @@ import Foundation
 
 class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
     
-    let repo : RepositoryProtocol
+    private let repo : RepositoryProtocol
     private var leagueDetailsDelegate : LeaguesDetailsDelegate?
     
     init() {
@@ -13,6 +13,10 @@ class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
     
     func attachView(view : LeaguesDetailsDelegate ){
         self.leagueDetailsDelegate = view
+    }
+    
+    func insert(league: LeagueDB) {
+        repo.insert(league: league)
     }
     
     func getFootballLatestEventsById(leagueId: Int) {

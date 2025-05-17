@@ -1,8 +1,16 @@
-//
-//  TeamDetailsPresenterProtocol.swift
-//  Sportify
-//
-//  Created by Ahmad Fawzy on 15/05/2025.
-//
-
 import Foundation
+
+
+protocol TeamDetailsPresenterProtocol{
+    
+    func attachView(view : TeamDetailsDelegate)
+    
+    func getFootballLatestEventsByTeam(teamId : Int)
+    
+    func getFootballUpcomingEventsByTeam(teamId : Int)
+        
+    func getBasketballLatestEventsByTeam(teamId : Int)
+    
+    func getBasketballUpcomingEventsByTeam(teamId : Int)
+    
+}

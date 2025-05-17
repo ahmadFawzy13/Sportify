@@ -483,4 +483,131 @@ class NetworkService : NetworkServiceProtocol {
             }
     }
     
+    func getFootballUpcomingEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int) {
+        var upcomingMatches : [FootballEvents] = []
+        
+        AF.request("\(EndPoint.upcomingFootballEventsByTeam.rawValue)\(teamId)")
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successsful")
+                    guard let data = response.data else {return}
+                    do{
+                        let json = try JSON(data:data)
+                        let latestEvents = json["result"]
+                        for item in latestEvents.arrayValue{
+                            let event = FootballEvents(json: item)
+                            upcomingMatches.append(event)
+                        }
+                        completionHandle(upcomingMatches)
+                    }catch{
+                        completionHandle([])
+                        print("Error in latest events api : \(error)")
+                    }
+                case .failure :
+                    print("Error in latest events api")
+                    completionHandle([])
+                }
+                
+            }
+    }
+    
+    func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId : Int){
+        
+        var latestMatches : [FootballEvents] = []
+        
+        AF.request("\(EndPoint.latestFootballEventsByTeam.rawValue)\(teamId)")
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successsful")
+                    guard let data = response.data else {return}
+                    do{
+                        let json = try JSON(data:data)
+                        let latestEvents = json["result"]
+                        for item in latestEvents.arrayValue{
+                            let event = FootballEvents(json: item)
+                            latestMatches.append(event)
+                        }
+                        completionHandle(latestMatches)
+                    }catch{
+                        completionHandle([])
+                        print("Error in latest events api : \(error)")
+                    }
+                case .failure :
+                    print("Error in latest events api")
+                    completionHandle([])
+                }
+                
+            }
+        
+    }
+    
+    func getBasketballUpcomingEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        
+        var upcomingMatches : [BasketBallEvents] = []
+        
+        AF.request("\(EndPoint.upcomingBasketballEventsByTeam.rawValue)\(teamId)")
+            .validate(statusCode: 200 ..< 300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result{
+                    case .success:
+                    print("Validation Successful")
+                    guard let data = response.data else {return}
+                    do{
+                        let json = try JSON(data: data)
+                        let latestEvents = json["result"]
+                        for item in latestEvents.arrayValue {
+                            let event = BasketBallEvents(json: item)
+                            upcomingMatches.append(event)
+                        }
+                        completionHandle(upcomingMatches)
+                    }catch{
+                        completionHandle([])
+                        print("Error in upcoming basketball leagues \(error)")
+                    }
+                case .failure:
+                    print("Error in upcoming basketball leagues")
+                    completionHandle([])
+                }
+            }
+    }
+    
+    func getBasketballLatestEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        
+        var latestMatches : [BasketBallEvents] = []
+        
+        AF.request("\(EndPoint.latestBasketballEventsByTeam.rawValue)\(teamId)")
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Validation Successsful")
+                    guard let data = response.data else {return}
+                    do{
+                        let json = try JSON(data:data)
+                        let latestEvents = json["result"]
+                        for item in latestEvents.arrayValue{
+                            let event = BasketBallEvents(json: item)
+                            latestMatches.append(event)
+                        }
+                        completionHandle(latestMatches)
+                    }catch{
+                        completionHandle([])
+                        print("Error in latest events api : \(error)")
+                    }
+                case .failure :
+                    print("Error in latest events api")
+                    completionHandle([])
+                }
+                
+            }
+    }
+    
 }

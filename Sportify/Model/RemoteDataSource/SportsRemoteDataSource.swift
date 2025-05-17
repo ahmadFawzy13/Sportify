@@ -2,12 +2,28 @@ import Foundation
 
 
 class SportsRemoteDataSource : RemoteDataSource {
-    
+   
     static let instance = SportsRemoteDataSource()
     private var networkService : NetworkServiceProtocol
     
     private init() {
         self.networkService = NetworkService.instance
+    }
+    
+    func getFootballUpcomingEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int) {
+        networkService.getFootballUpcomingEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int) {
+        networkService.getFootballLatestEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getBasketballUpcomingEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        networkService.getBasketballUpcomingEventsByTeam(completionHandle: completionHandle, teamId: teamId)
+    }
+    
+    func getBasketballLatestEventsByTeam(completionHandle: @escaping ([BasketBallEvents]) -> Void, teamId: Int) {
+        networkService.getBasketballLatestEventsByTeam(completionHandle: completionHandle, teamId: teamId)
     }
     
     func getAllFootballLeagues(completionHandler: @escaping ([League]) -> Void) {
