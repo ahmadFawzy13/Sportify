@@ -10,6 +10,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     var tennisLeagues : [League] = []
     var cricket : [League] = []
     var leagueDB : LeagueDB?
+    var animate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +30,26 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     func getAllFootballLeagues(leagues: [League]) {
         footBallLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     func getAllBasketballLeagues(leagues : [League]) {
         basketballLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     func getAllTennisTournaments(leagues: [League]) {
         tennisLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     
     func getAllCricketLeagues(leagues: [League]) {
         cricket = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     
@@ -72,6 +77,8 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
+        
+        startShimmerEffectForLeagueCell(cell: cell)
         
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
@@ -154,6 +161,19 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    func startShimmerEffectForLeagueCell(cell : LeaguesCell){
+        if animate {
+            cell.leagueLogo.startShimmeringViewAnimation()
+            cell.leagueTitle.startShimmeringViewAnimation()
+        }
+    }
+    
+    func waitOneSecond() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.animate = false
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

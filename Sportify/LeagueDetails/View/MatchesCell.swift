@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 class MatchesCell: UICollectionViewCell {
     
@@ -17,4 +18,5 @@ class MatchesCell: UICollectionViewCell {
     @IBOutlet weak var matchDate: UILabel!
     @IBOutlet weak var secondTeamLogo: UIImageView!
     @IBOutlet weak var firstTeamLogo: UIImageView!
+
 }

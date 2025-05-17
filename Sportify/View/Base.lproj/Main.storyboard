@@ -237,14 +237,14 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamsCell" id="058-Lu-a8L" customClass="TeamsCell" customModule="Sportify" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="60" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="50" width="402" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="H0f-fC-Zce">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alahly.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="61p-GG-dg1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="61p-GG-dg1">
+                                            <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -259,13 +259,13 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="matchCell" id="JyP-tt-dew" customClass="MatchesCell" customModule="Sportify" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="670" width="402" height="198"/>
+                                <rect key="frame" x="0.0" y="258" width="402" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="De6-cq-AY7">
                                     <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QId-In-fcZ">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QId-In-fcZ">
                                             <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="don.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OPW-JE-1yx">
@@ -494,8 +494,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="alahly.jpg" width="600" height="600"/>
-        <image name="background.jpg" width="458" height="200"/>
         <image name="cricket.jpg" width="770" height="513"/>
         <image name="don.jpg" width="1250" height="833"/>
         <image name="figure.badminton" catalog="system" width="118" height="128"/>

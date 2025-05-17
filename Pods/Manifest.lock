@@ -2,23 +2,27 @@ PODS:
   - Alamofire (5.10.2)
   - Kingfisher (7.12.0)
   - SwiftyJSON (5.0.2)
+  - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher (~> 7.0)
   - SwiftyJSON
+  - UIView-Shimmer (~> 1.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
     - SwiftyJSON
+    - UIView-Shimmer
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+  UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 871579448b39cca1ad6262eecfbfb576e48cdee2
+PODFILE CHECKSUM: 046b76e9333928488c5a9c2b5940a77a59f5e247
 
 COCOAPODS: 1.16.2

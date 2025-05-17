@@ -7,7 +7,10 @@
 
 import UIKit
 
-class TeamsCell: UICollectionViewCell {
+class TeamsCell : UICollectionViewCell {
     @IBOutlet weak var teamLogo: UIImageView!
-    
+    override class func awakeFromNib() {
+        super .awakeFromNib()
+        
+    }
 }
