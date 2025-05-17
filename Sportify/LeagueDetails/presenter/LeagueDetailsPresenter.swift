@@ -95,5 +95,10 @@ class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
             self?.leagueDetailsDelegate?.getCricketTeams(result: result)
         }, leagueId: leagueId)
     }
+    
+    func insertLeague(league: LeagueDB) {
+        repo.insert(league: league)
+    }
+    
 
 }

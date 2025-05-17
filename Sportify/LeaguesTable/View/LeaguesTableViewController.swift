@@ -9,12 +9,12 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     var basketballLeagues : [League] = []
     var tennisLeagues : [League] = []
     var cricketLeagues : [League] = []
+    var animate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
-        
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         
         leaguePresenter.attachView(leaguesTableProtocol: self)
@@ -35,22 +35,26 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     func getAllFootballLeagues(leagues: [League]) {
         footBallLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     func getAllBasketballLeagues(leagues : [League]) {
         basketballLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     func getAllTennisTournaments(leagues: [League]) {
         tennisLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     
     func getAllCricketLeagues(leagues: [League]) {
         cricketLeagues = leagues
         tableView.reloadData()
+        waitOneSecond()
     }
     
     
@@ -76,6 +80,8 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
+        
+        
         
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
@@ -109,7 +115,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
             chosenLeague = []
         }
         cell.leagueTitle.text = chosenLeague[indexPath.row].leagueName
-        
+        startShimmerEffectForLeagueCell(cell: cell)
         return cell
     }
     
@@ -146,6 +152,21 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    func startShimmerEffectForLeagueCell(cell : LeaguesCell){
+        if animate {
+            cell.leagueLogo.startShimmeringViewAnimation()
+            cell.leagueTitle.startShimmeringViewAnimation()
+        }
+    }
+    
+    func waitOneSecond() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.animate = false
+        }
+    }
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

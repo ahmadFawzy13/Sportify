@@ -17,4 +17,5 @@ class MatchesCell: UICollectionViewCell {
     @IBOutlet weak var matchDate: UILabel!
     @IBOutlet weak var secondTeamLogo: UIImageView!
     @IBOutlet weak var firstTeamLogo: UIImageView!
+
 }

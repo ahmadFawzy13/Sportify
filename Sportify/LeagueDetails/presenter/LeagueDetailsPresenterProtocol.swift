@@ -26,5 +26,4 @@ protocol LeagueDetailsPresenterProtocol{
     func getCricketTeamsByLeagueId( leagueId: Int)
     
     func insert(league : LeagueDB)
-        
 }
