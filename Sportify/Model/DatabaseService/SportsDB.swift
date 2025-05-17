@@ -66,7 +66,7 @@ final class SportsDB : CoreDataServices{
             
             for leagueObj in savedLeagues {
                 
-                let league = LeagueDB(id: leagueObj.value(forKey: "id") as! Int, name: leagueObj.value(forKey: "name") as! String, logo: leagueObj.value(forKey: "logo") as! String)
+                let league = LeagueDB(id: leagueObj.value(forKey: "id") as! String, name: leagueObj.value(forKey: "name") as! String, logo: leagueObj.value(forKey: "logo") as! String)
                 
                 leaguesList.append(league)
                 print("league retrieved : \(league.name)")
@@ -87,7 +87,7 @@ final class SportsDB : CoreDataServices{
       
         let fetchRequest = databaseFetchRequest()
       
-        let predicate = NSPredicate(format: "id == %d", Int64(league.id))
+        let predicate = NSPredicate(format: "id == %@",league.id)
         
         fetchRequest.predicate = predicate
       

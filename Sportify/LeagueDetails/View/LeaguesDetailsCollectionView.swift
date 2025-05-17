@@ -356,7 +356,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         guard let leagueName = leagueName else{return}
         guard let leagueLogo = leagueLogo else{return}
         
-        let league = LeagueDB(id: leagueKey, name: leagueName, logo: leagueLogo)
+        let league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo)
         
         leaguesDetailsPresenter?.insert(league: league)
         showPositiveAlert()

@@ -138,11 +138,11 @@ class TennisEvents{
 
 
 class LeagueDB {
-    var id : Int
+    var id : String
     var name : String
     var logo : String
     
-    init(id: Int, name: String, logo: String) {
+    init(id: String, name: String, logo: String) {
         self.id = id
         self.name = name
         self.logo = logo
