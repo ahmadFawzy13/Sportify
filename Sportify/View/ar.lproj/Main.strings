@@ -1,0 +1,78 @@
+/* Class = "UILabel"; text = "Second Team Name"; ObjectID = "2YA-Eb-Ret"; */
+"2YA-Eb-Ret.text" = "اسم الفريق الثاني";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "3yJ-FD-Dcs"; */
+"3yJ-FD-Dcs.title" = "الرئيسية";
+
+/* Class = "UILabel"; text = "Football"; ObjectID = "879-MP-1dx"; */
+"879-MP-1dx.text" = "كرة القدم";
+
+/* Class = "UILabel"; text = "Vs."; ObjectID = "99k-r6-LVf"; */
+"99k-r6-LVf.text" = "ضد";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cho-bW-B2h"; */
+"Cho-bW-B2h.text" = "تسمية";
+
+/* Class = "UITableViewController"; title = "Leagues"; ObjectID = "Ef2-KK-C3U"; */
+"Ef2-KK-C3U.title" = "الدوريات";
+
+/* Class = "UITabBarItem"; title = "Favourites"; ObjectID = "Gwv-F7-36d"; */
+"Gwv-F7-36d.title" = "المفضلة";
+
+/* Class = "UILabel"; text = "2023-06-10"; ObjectID = "MNa-6I-3N2"; */
+"MNa-6I-3N2.text" = "2023-06-10";
+
+/* Class = "UILabel"; text = "First Team Name"; ObjectID = "PPX-4u-oWd"; */
+"PPX-4u-oWd.text" = "اسم الفريق الأول";
+
+/* Class = "UILabel"; text = "Cricket"; ObjectID = "Q52-cC-MaW"; */
+"Q52-cC-MaW.text" = "الكريكيت";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "RjU-cH-uBc"; */
+"RjU-cH-uBc.title" = "العنوان";
+
+/* Class = "UINavigationItem"; title = "Leagues"; ObjectID = "T72-Pv-U6Y"; */
+"T72-Pv-U6Y.title" = "الدوريات";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VNp-X2-3cP"; */
+"VNp-X2-3cP.text" = "تسمية";
+
+/* Class = "UILabel"; text = "Vs."; ObjectID = "Vnl-zP-Gc4"; */
+"Vnl-zP-Gc4.text" = "ضد";
+
+/* Class = "UILabel"; text = "21:00"; ObjectID = "Z5e-2W-664"; */
+"Z5e-2W-664.text" = "21:00";
+
+/* Class = "UILabel"; text = "4-0"; ObjectID = "dtt-ma-0wQ"; */
+"dtt-ma-0wQ.text" = "4-0";
+
+/* Class = "UINavigationItem"; title = "Sports"; ObjectID = "e6p-IA-dL9"; */
+"e6p-IA-dL9.title" = "الرياضات";
+
+/* Class = "UILabel"; text = "Tennis"; ObjectID = "kPt-IM-3Mk"; */
+"kPt-IM-3Mk.text" = "التنس";
+
+/* Class = "UILabel"; text = "Second"; ObjectID = "nIb-I2-p3b"; */
+"nIb-I2-p3b.text" = "الثاني";
+
+/* Class = "UILabel"; text = "First"; ObjectID = "oqD-uP-8Ml"; */
+"oqD-uP-8Ml.text" = "الأول";
+
+/* Class = "UILabel"; text = "Basketball"; ObjectID = "oz5-vO-vre"; */
+"oz5-vO-vre.text" = "كرة السلة";
+
+/* Class = "UILabel"; text = "21:00"; ObjectID = "vqk-0G-phX"; */
+"vqk-0G-phX.text" = "21:00";
+
+/* Class = "UILabel"; text = "2023-06-10"; ObjectID = "wsS-Mx-pZA"; */
+"wsS-Mx-pZA.text" = "2023-06-10";
+
+/* Class = "UILabel"; text = "Player Name"; ObjectID = "xu8-cn-Jet"; */
+"xu8-cn-Jet.text" = "اسم اللاعب";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "y1k-iy-vlI"; */
+"y1k-iy-vlI.title" = "عنصر";
+
+"upcoming_events" = "الأحداث القادمة";
+"latest_events" = "أحدث الأحداث";
+"teams" = "الفرق";

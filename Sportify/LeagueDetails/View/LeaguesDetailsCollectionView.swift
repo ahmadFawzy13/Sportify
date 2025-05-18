@@ -322,11 +322,11 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         let headerView = collectionView.dequeueReusableSupplementaryView (ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
        switch indexPath.section {
        case 0:
-           headerView.sectionTitle.text = "Upcoming Events"
+           headerView.sectionTitle.text = NSLocalizedString("upcoming_events", comment: "")
        case 1:
-           headerView.sectionTitle.text = "Latest Events"
+           headerView.sectionTitle.text = NSLocalizedString("latest_events", comment: "")
        case 2:
-           headerView.sectionTitle.text = "Teams"
+           headerView.sectionTitle.text = NSLocalizedString("teams", comment: "")
        default :
            break
        }
