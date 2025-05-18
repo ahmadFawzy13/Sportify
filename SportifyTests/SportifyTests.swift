@@ -147,25 +147,138 @@ final class SportifyTests: XCTestCase {
         }, leagueId: 766)
         waitForExpectations(timeout: 5)
     }
+    
+    func testAlltennisTournaments(){
+        let expectation = expectation(description: "Awaiting response..")
+        
+        networkService.getAllTennisTournaments(completionHandle: { leagues in
+            switch leagues.count {
+            case 0:
+                XCTFail()
+            default:
+                XCTAssert(leagues.count > 0)
+                expectation.fulfill()
+            }
+        })
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testAllCricketLeagues(){
+        let expectation = expectation(description: "Awaiting response..")
+        
+        networkService.getAllCricketLeagues(completionHandle: { leagues in
+            switch leagues.count {
+            case 0:
+                XCTFail()
+            default:
+                XCTAssert(leagues.count > 0)
+                expectation.fulfill()
+            }
+        })
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testTennisUpcomingEventsById(){
+        let expectation = expectation(description: "Awaiting response..")
+        
+        networkService.getTennisUpcomingEventsById(completionHandle: { events in
+            switch events.count {
+            case 0:
+                XCTFail()
+            default:
+                XCTAssert(events.count > 0)
+                expectation.fulfill()
+            }
+        },tournamentId: 2053)
+        waitForExpectations(timeout: 5)
+    }
+    func testCricketUpcomingEventsById(){
+        let excpectation = expectation(description: "Awaiting response..")
+        
+        networkService.getCricketUpcomingEventsById(completionHandle: { events in
+            switch events.count {
+            case 0 :
+                XCTFail()
+            default :
+                XCTAssert(events.count > 0)
+                excpectation.fulfill()
+            }
+        }, leagueId: 745)
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testFootballTeamsByLeagueId(){
+        let expectaion = expectation(description: "Awaiting response..")
+        networkService.getFootballTeamsByLeagueId(completionHandle: { teams in
+            switch teams.count {
+                case 0 :
+                XCTFail()
+            default :
+                XCTAssert(teams.count > 0)
+                expectaion.fulfill()
+            }
+        }, leagueId: 3)
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testBasketballTeamsByLeagueId(){
+        let expectaion = expectation(description: "Awaiting response..")
+        networkService.getBasketballTeamsByLeagueId(completionHandle: { teams in
+            switch teams.count {
+            case 0 :
+                XCTFail()
+            default :
+                XCTAssert(teams.count > 0)
+                expectaion.fulfill()
+            }
+        }, leagueId: 766)
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testCricketTeamsByLeagueId(){
+        let expectaion = expectation(description: "Awaiting response..")
+        networkService.getCricketTeamsByLeagueId(completionHandle: { teams in
+            switch teams.count {
+            case 0:
+                XCTFail()
+            default :
+                XCTAssert(teams.count > 0)
+                expectaion.fulfill()
+            }
+        }, leagueId: 745)
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testFootballUpcomingEventsByTeam(){
+        let expectaion = expectation(description: "Awaiting response..")
+        networkService.getFootballUpcomingEventsByTeam(completionHandle: { events in
+            switch events.count {
+            case 0:
+                XCTFail()
+            default :
+                XCTAssert(events.count > 0)
+                expectaion.fulfill()
+            }
+        },teamId: 84)
+        waitForExpectations(timeout: 5)
+    }
+    
+    func testFootballLatestEventsByTeam(){
+        let expectation = expectation(description: "Awaiting response..")
+        networkService.getFootballLatestEventsByTeam(completionHandle: { events in
+            switch events.count {
+            case 0:
+                XCTFail()
+            default :
+                XCTAssert(events.count > 0)
+                expectation.fulfill()
+            }
+        }, teamId: 84)
+        waitForExpectations(timeout: 5)
+    }
 }
 /*
  E3ML TEST L DOOL YA 3BDALLA YA RA2ED YA EBN EL HARAM
-
-func getAllTennisTournaments(completionHandle : @escaping ([League]) -> Void)
-
-func getAllCricketLeagues(completionHandle : @escaping ([League]) -> Void)
-
-func getTennisUpcomingEventsById(completionHandle: @escaping ([TennisEvents]) -> Void, tournamentId: Int)
-
-func getCricketUpcomingEventsById(completionHandle: @escaping ([CricketEvents]) -> Void, leagueId: Int)
-
-func getFootballTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int)
-
-func getBasketballTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int)
-
-func getCricketTeamsByLeagueId(completionHandle: @escaping ([Team]) -> Void, leagueId: Int)
-
-func getFootballUpcomingEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId: Int)
     
 func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId : Int)
 */
