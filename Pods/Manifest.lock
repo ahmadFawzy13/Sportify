@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.10.2)
   - Kingfisher (7.12.0)
+  - ReachabilitySwift (5.2.4)
   - SwiftMessages (9.0.9):
     - SwiftMessages/App (= 9.0.9)
   - SwiftMessages/App (9.0.9)
@@ -9,6 +10,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Kingfisher (~> 7.0)
+  - ReachabilitySwift
   - SwiftMessages
   - SwiftyJSON
 
@@ -16,15 +18,17 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - ReachabilitySwift
     - SwiftMessages
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  ReachabilitySwift: 32793e867593cfc1177f5d16491e3a197d2fccda
   SwiftMessages: 1a23aef303fa7bb26ad802880746cf8358e378fe
   SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
 
-PODFILE CHECKSUM: 615a1f6393d9932a89b6aa7b954c2d9228808001
+PODFILE CHECKSUM: 4af295c8d9bf21168d2535e6949646cc72a84ba0
 
 COCOAPODS: 1.16.2

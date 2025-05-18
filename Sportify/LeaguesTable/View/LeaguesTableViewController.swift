@@ -32,6 +32,10 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        _ = NetworkMonitor.isNetworkAvailable()
+    }
+    
     func getAllFootballLeagues(leagues: [League]) {
         footBallLeagues = leagues
         tableView.reloadData()
