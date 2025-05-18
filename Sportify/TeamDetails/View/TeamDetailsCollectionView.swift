@@ -54,6 +54,10 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
         self.navigationItem.title = team.teamName
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        _ = NetworkMonitor.isNetworkAvailable()
+    }
+    
     func drawMatchesSection() -> NSCollectionLayoutSection{
         //Items has size & insets if needed
         

@@ -141,10 +141,12 @@ class LeagueDB {
     var id : String
     var name : String
     var logo : String
+    var selectedLeague : String
     
-    init(id: String, name: String, logo: String) {
+    init(id: String, name: String, logo: String , selectedLeague : String) {
         self.id = id
         self.name = name
         self.logo = logo
+        self.selectedLeague = selectedLeague
     }
 }

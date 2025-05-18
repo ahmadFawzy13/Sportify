@@ -44,6 +44,7 @@ final class SportsDB : CoreDataServices{
             inserOperation.setValue(league.id, forKey: "id")
             inserOperation.setValue(league.name, forKey: "name")
             inserOperation.setValue(league.logo, forKey: "logo")
+            inserOperation.setValue(league.selectedLeague, forKey: "selectedLeague")
             
             do {
                 try context.save()
@@ -66,7 +67,7 @@ final class SportsDB : CoreDataServices{
             
             for leagueObj in savedLeagues {
                 
-                let league = LeagueDB(id: leagueObj.value(forKey: "id") as! String, name: leagueObj.value(forKey: "name") as! String, logo: leagueObj.value(forKey: "logo") as! String)
+                let league = LeagueDB(id: leagueObj.value(forKey: "id") as! String, name: leagueObj.value(forKey: "name") as! String, logo: leagueObj.value(forKey: "logo") as! String , selectedLeague: leagueObj.value(forKey: "selectedLeague") as! String)
                 
                 leaguesList.append(league)
                 print("league retrieved : \(league.name)")

@@ -9,4 +9,6 @@ target 'Sportify' do
 	pod 'SwiftyJSON'
 	pod 'Kingfisher', '~> 7.0'
 	pod 'SwiftMessages'
+	pod 'ReachabilitySwift'
+
 end

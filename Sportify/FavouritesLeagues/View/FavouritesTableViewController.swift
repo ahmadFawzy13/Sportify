@@ -15,7 +15,6 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         favouriteLeaguesPresenter.attatchView(favouriteLeagueDelegate: self)
         favouriteLeaguesPresenter.getAllFavouriteLeagues()
     }
-
     
     func getAllFavouriteLeagues(leagues: [LeagueDB]) {
         favouriteLeagues = leagues
@@ -51,6 +50,28 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
+        vc.leagueKey = Int(favouriteLeagues[indexPath.row].id)
+        vc.leagueLogo = favouriteLeagues[indexPath.row].logo
+        vc.leagueName = favouriteLeagues[indexPath.row].name
+        if NetworkMonitor.isNetworkAvailable() {
+            switch favouriteLeagues[indexPath.row].selectedLeague{
+           case "football":
+                vc.selectedLeague = .football
+            case "basketball":
+                vc.selectedLeague = .basketball
+            case "tennis":
+                vc.selectedLeague = .tennis
+            case "cricket" :
+                vc.selectedLeague = .cricket
+            default:
+                break
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     /*
     // Override to support conditional editing of the table view.

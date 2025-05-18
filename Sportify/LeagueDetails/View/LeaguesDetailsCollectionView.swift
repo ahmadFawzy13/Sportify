@@ -82,6 +82,10 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         self.navigationItem.title = leagueName
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        _ = NetworkMonitor.isNetworkAvailable()
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -355,9 +359,19 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
         guard let leagueKey = leagueKey else {return}
         guard let leagueName = leagueName else{return}
         guard let leagueLogo = leagueLogo else{return}
-        
-        let league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo)
-        
+        var league : LeagueDB!
+        switch selectedLeague {
+        case .football:
+             league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo, selectedLeague: "football")
+        case .basketball:
+             league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo, selectedLeague: "basketball")
+        case .tennis:
+             league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo, selectedLeague: "tennis")
+        case .cricket:
+             league = LeagueDB(id: "\(leagueKey)", name: leagueName, logo: leagueLogo, selectedLeague: "cricket")
+        default:
+            break
+        }
         leaguesDetailsPresenter?.insert(league: league)
         showPositiveAlert()
     }
