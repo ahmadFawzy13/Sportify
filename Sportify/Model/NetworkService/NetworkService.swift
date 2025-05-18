@@ -2,9 +2,6 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-
-
-
 class NetworkService : NetworkServiceProtocol {
     
     static let instance = NetworkService()

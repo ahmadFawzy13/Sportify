@@ -10,7 +10,18 @@
 		681BA2170DD6913667D4D19C /* Pods_Sportify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FC13ACE5D17A130B6CA2D3 /* Pods_Sportify.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		503744CA2DDA52E100B605F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50B931EF2DCFA7C400368D40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50B931F62DCFA7C400368D40;
+			remoteInfo = Sportify;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		503744C62DDA52E100B605F2 /* SportifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B931F72DCFA7C400368D40 /* Sportify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71E3DAED92548E70EE42B4A1 /* Pods-Sportify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sportify.release.xcconfig"; path = "Target Support Files/Pods-Sportify/Pods-Sportify.release.xcconfig"; sourceTree = "<group>"; };
 		97FC13ACE5D17A130B6CA2D3 /* Pods_Sportify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sportify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +39,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		503744C72DDA52E100B605F2 /* SportifyTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SportifyTests;
+			sourceTree = "<group>";
+		};
 		50B931F92DCFA7C400368D40 /* Sportify */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -39,6 +55,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		503744C32DDA52E100B605F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50B931F42DCFA7C400368D40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				50B931F92DCFA7C400368D40 /* Sportify */,
+				503744C72DDA52E100B605F2 /* SportifyTests */,
 				50B931F82DCFA7C400368D40 /* Products */,
 				2061425FDC0B7ACECA7DCD3B /* Pods */,
 				DB161EE4885840B72790C0D6 /* Frameworks */,
@@ -73,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				50B931F72DCFA7C400368D40 /* Sportify.app */,
+				503744C62DDA52E100B605F2 /* SportifyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +113,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		503744C52DDA52E100B605F2 /* SportifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 503744CE2DDA52E100B605F2 /* Build configuration list for PBXNativeTarget "SportifyTests" */;
+			buildPhases = (
+				503744C22DDA52E100B605F2 /* Sources */,
+				503744C32DDA52E100B605F2 /* Frameworks */,
+				503744C42DDA52E100B605F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				503744CB2DDA52E100B605F2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				503744C72DDA52E100B605F2 /* SportifyTests */,
+			);
+			name = SportifyTests;
+			packageProductDependencies = (
+			);
+			productName = SportifyTests;
+			productReference = 503744C62DDA52E100B605F2 /* SportifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		50B931F62DCFA7C400368D40 /* Sportify */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50B9320D2DCFA7C400368D40 /* Build configuration list for PBXNativeTarget "Sportify" */;
@@ -120,6 +168,10 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					503744C52DDA52E100B605F2 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 50B931F62DCFA7C400368D40;
+					};
 					50B931F62DCFA7C400368D40 = {
 						CreatedOnToolsVersion = 16.3;
 					};
@@ -140,11 +192,19 @@
 			projectRoot = "";
 			targets = (
 				50B931F62DCFA7C400368D40 /* Sportify */,
+				503744C52DDA52E100B605F2 /* SportifyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		503744C42DDA52E100B605F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50B931F52DCFA7C400368D40 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,9 +223,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sportify/Pods-Sportify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sportify/Pods-Sportify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -197,6 +261,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		503744C22DDA52E100B605F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50B931F32DCFA7C400368D40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,7 +277,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		503744CB2DDA52E100B605F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50B931F62DCFA7C400368D40 /* Sportify */;
+			targetProxy = 503744CA2DDA52E100B605F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		503744CC2DDA52E100B605F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Lab.SportifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sportify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sportify";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Debug;
+		};
+		503744CD2DDA52E100B605F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Lab.SportifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sportify.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sportify";
+				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
 		50B9320E2DCFA7C400368D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA094A4EE0B988AD4D267E76 /* Pods-Sportify.debug.xcconfig */;
@@ -393,6 +516,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		503744CE2DDA52E100B605F2 /* Build configuration list for PBXNativeTarget "SportifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				503744CC2DDA52E100B605F2 /* Debug */,
+				503744CD2DDA52E100B605F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50B931F22DCFA7C400368D40 /* Build configuration list for PBXProject "Sportify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
