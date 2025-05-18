@@ -29,13 +29,13 @@ enum EndPoint : String{
             "https://apiv2.allsportsapi.com/cricket/?&met=Teams&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&leagueId="
     
     case upcomingFootballEventsByTeam =
-            "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-05-14&to=2025-06-13&teamId="
+            "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-05-18&to=2025-06-17&teamId="
     case upcomingBasketballEventsByTeam =
-        "https://apiv2.allsportsapi.com/basketball/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-05-14&to=2025-06-13&teamId="
+        "https://apiv2.allsportsapi.com/basketball/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-05-30&to=2025-12-30&teamId="
     case upcomingTennisEventsByTeam =
-        "https://apiv2.allsportsapi.com/tennis/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2024-05-14&to=2025-07-15&playerId="
+        "https://apiv2.allsportsapi.com/tennis/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2024-10-01&to=2025-11-29&playerId="
     case latestFootballEventsByTeam =
-        "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-04-10&to=2025-05-10&teamId="
+        "https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-01-01&to=2025-05-17&teamId="
     case latestBasketballEventsByTeam =
         "https://apiv2.allsportsapi.com/basketball/?met=Fixtures&APIkey=a7a55a0e87bf0b5290697393ee212dde30f1bbef597f2fdeca568ed2beebff11&from=2025-05-01&to=2025-05-12&teamId="
     case latestTennisEventsByPlayer =

@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 class LeagueDetailsPresenter : LeagueDetailsPresenterProtocol {
     
     private let repo : RepositoryProtocol

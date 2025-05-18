@@ -1,5 +1,5 @@
 import UIKit
-
+import SwiftMessages
 private let playerCell = "player"
 private let matchesCell = "teamMatchesCell"
 
@@ -17,6 +17,8 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
     
     var upcomingBasketballEvents : [BasketBallEvents] = []
     var latestBasketballEvents : [BasketBallEvents] = []
+    
+    var animate = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +64,7 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         //Group has items size & insets if needed
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.8))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.25))
         
         let matchGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
@@ -78,18 +80,14 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
     
     func drawPlayersSection() -> NSCollectionLayoutSection{
         //item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.5))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.4))
         
         let playerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        playerGroup.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         
         //Section
         let section = NSCollectionLayoutSection(group: playerGroup)
@@ -111,18 +109,26 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
     
     func getFootballLatestEventsByTeam(result: [FootballEvents]) {
         latestFootballEvents = result
+        self.collectionView.reloadData()
+        waitOneSecond()
     }
     
     func getFootballUpcomingEventsByTeam(result: [FootballEvents]) {
         upcomingFootballEvents = result
+        self.collectionView.reloadData()
+        waitOneSecond()
     }
     
     func getBasketballLatestEventsByTeam(result: [BasketBallEvents]) {
         latestBasketballEvents = result
+        self.collectionView.reloadData()
+        waitOneSecond()
     }
     
     func getBasketballUpcomingEventsByTeam(result: [BasketBallEvents]) {
         upcomingBasketballEvents = result
+        self.collectionView.reloadData()
+        waitOneSecond()
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -170,13 +176,133 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
         
     }
 
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-////        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//    
-//        
-//    
-//        return cell
-//    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchesCell, for: indexPath) as! MatchesCell
+            
+            cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
+            cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
+            
+            switch selectedLeague {
+            case .football:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: upcomingFootballEvents[indexPath.row].homeTeamLogo))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: upcomingFootballEvents[indexPath.row].awayTeamLogo))
+                cell.firstTeamName.text = upcomingFootballEvents[indexPath.row].homeTeamName
+                cell.secondTeamName.text = upcomingFootballEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = upcomingFootballEvents[indexPath.row].eventDate
+                cell.matchTime.text = upcomingFootballEvents[indexPath.row].eventTime
+                startShimmeringEffectForMatchCell(cell: cell)
+                return cell
+            case .basketball:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: upcomingBasketballEvents[indexPath.row].homeTeamLogo))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: upcomingBasketballEvents[indexPath.row].awayTeamLogo))
+                cell.firstTeamName.text = upcomingBasketballEvents[indexPath.row].homeTeamName
+                cell.secondTeamName.text = upcomingBasketballEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = upcomingBasketballEvents[indexPath.row].eventDate
+                cell.matchTime.text = upcomingBasketballEvents[indexPath.row].eventTime
+                startShimmeringEffectForMatchCell(cell: cell)
+                return cell
+            case .cricket:
+                print("Nothing")
+                return UICollectionViewCell()
+            case .tennis:
+                print("Nothing")
+                return UICollectionViewCell()
+            case nil:
+                print("Nothing")
+                return UICollectionViewCell()
+            }
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchesCell, for: indexPath) as! MatchesCell
+            
+            cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
+            cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
+            
+            switch selectedLeague {
+            case .football:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: latestFootballEvents[indexPath.row].homeTeamLogo))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: latestFootballEvents[indexPath.row].awayTeamLogo))
+                cell.firstTeamName.text = latestFootballEvents[indexPath.row].homeTeamName
+                cell.secondTeamName.text = latestFootballEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = latestFootballEvents[indexPath.row].eventDate
+                cell.matchTime.text = latestFootballEvents[indexPath.row].eventTime
+                cell.matchResult.text = latestFootballEvents[indexPath.row].fulltimeResults
+                startShimmeringEffectForMatchCell(cell: cell)
+                return cell
+            case .basketball:
+                cell.firstTeamLogo.kf.setImage(with: URL(string: latestBasketballEvents[indexPath.row].homeTeamLogo))
+                cell.secondTeamLogo.kf.setImage(with: URL(string: latestBasketballEvents[indexPath.row].awayTeamLogo))
+                cell.firstTeamName.text = latestBasketballEvents[indexPath.row].homeTeamName
+                cell.secondTeamName.text = latestBasketballEvents[indexPath.row].awayTeamName
+                cell.matchDate.text = latestBasketballEvents[indexPath.row].eventDate
+                cell.matchTime.text = latestBasketballEvents[indexPath.row].eventTime
+                cell.matchResult.text = latestBasketballEvents[indexPath.row].fulltimeResults
+                startShimmeringEffectForMatchCell(cell: cell)
+                return cell
+            case .cricket:
+                print("Nothing")
+                return UICollectionViewCell()
+            case .tennis:
+                print("Nothing")
+                return UICollectionViewCell()
+            case nil:
+                print("Nothing")
+                return UICollectionViewCell()
+            }
+        case 2:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: playerCell, for: indexPath) as! PlayersCell
+           
+            if let team = team {
+                cell.playerImg.kf.setImage(with: URL(string: team.players[indexPath.row].playerImg))
+                cell.playerName.text = team.players[indexPath.row].playerName
+            }
+            startShimmeringEffectForTeamsCell(cell: cell)
+           return cell
+        default:
+            return UICollectionViewCell()
+        }
+    }
+    
+    func startShimmeringEffectForMatchCell(cell : MatchesCell){
+        if animate{
+            cell.firstTeamLogo.startShimmeringViewAnimation()
+            cell.secondTeamLogo.startShimmeringViewAnimation()
+            cell.firstTeamName.startShimmeringViewAnimation()
+            cell.secondTeamName.startShimmeringViewAnimation()
+            cell.matchDate.startShimmeringViewAnimation()
+            cell.matchResult.startShimmeringViewAnimation()
+        }
+    }
+    
+    func startShimmeringEffectForTeamsCell(cell : PlayersCell){
+        if animate {
+            cell.playerImg.startShimmeringViewAnimation()
+            cell.playerName.startShimmeringViewAnimation()
+        }
+    }
+    
+    func waitOneSecond() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.animate = false
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView (ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! SectionHeader
+       switch indexPath.section {
+       case 0:
+           headerView.sectionTitle.text = "Upcoming Events"
+       case 1:
+           headerView.sectionTitle.text = "Latest Events"
+       case 2:
+           headerView.sectionTitle.text = "Players"
+       default :
+           break
+       }
+       return headerView
+    }
 
     // MARK: UICollectionViewDelegate
 

@@ -606,8 +606,6 @@ class NetworkService : NetworkServiceProtocol {
                     print("Error in latest events api")
                     completionHandle([])
                 }
-                
             }
     }
-    
 }
