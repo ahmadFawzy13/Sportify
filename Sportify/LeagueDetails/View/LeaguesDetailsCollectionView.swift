@@ -136,9 +136,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.matchResult.isHidden = true
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.firstTeamLogo.image?.rounded
-            
-                
-                
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
             switch selectedLeague {
             case .football:
 
@@ -183,7 +181,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             cell.matchResult.isHidden = false
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
-            
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
                
             switch selectedLeague {
             case .football:
@@ -231,13 +229,12 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: teamsCellIdentifier, for: indexPath) as! TeamsCell
             cell.teamLogo.image = cell.teamLogo.image?.rounded
             cell.teamLogo.kf.setImage(with: URL(string: team[indexPath.row].teamLogo))
-            
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
             startShimmeringEffectForTeamsCell(cell: cell)
             return cell
         default:
             return UICollectionViewCell()
         }
-       
     }
     
     

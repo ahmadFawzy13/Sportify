@@ -185,10 +185,10 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchesCell, for: indexPath) as! MatchesCell
-            
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
-            
+            cell.matchResult.isHidden = true
             switch selectedLeague {
             case .football:
                 cell.firstTeamLogo.kf.setImage(with: URL(string: upcomingFootballEvents[indexPath.row].homeTeamLogo))
@@ -220,7 +220,7 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
             }
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: matchesCell, for: indexPath) as! MatchesCell
-            
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
             cell.firstTeamLogo.image = cell.firstTeamLogo.image?.rounded
             cell.secondTeamLogo.image = cell.secondTeamLogo.image?.rounded
             
@@ -257,9 +257,9 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
             }
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: playerCell, for: indexPath) as! PlayersCell
-           
+            cell.backgroundColor = UIColor(named: "leagueCellBg")
             if let team = team {
-                cell.playerImg.kf.setImage(with: URL(string: team.players[indexPath.row].playerImg))
+                cell.playerImg.kf.setImage(with: URL(string: team.players[indexPath.row].playerImg), placeholder: UIImage(named: "playerPlaceholder.jpg"))
                 cell.playerName.text = team.players[indexPath.row].playerName
             }
             startShimmeringEffectForTeamsCell(cell: cell)
@@ -307,36 +307,4 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
        }
        return headerView
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

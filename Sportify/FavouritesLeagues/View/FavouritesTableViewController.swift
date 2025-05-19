@@ -21,16 +21,11 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         tableView.reloadData()
     }
     
-    
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return favouriteLeagues.count
     }
 
@@ -39,6 +34,7 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath)
                 as! LeaguesCell
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
+        cell.backgroundColor = UIColor(named: "leagueCellBg")
         cell.leagueTitle.text = favouriteLeagues[indexPath.row].name
         cell.leagueLogo.kf.setImage(with: URL(string: favouriteLeagues[indexPath.row].logo),placeholder: UIImage(named: "sport.jpg")?.rounded, options: [
             .processor(processor),
