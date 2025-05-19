@@ -277,8 +277,4 @@ final class SportifyTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 }
-/*
- E3ML TEST L DOOL YA 3BDALLA YA RA2ED YA EBN EL HARAM
-    
-func getFootballLatestEventsByTeam(completionHandle: @escaping ([FootballEvents]) -> Void, teamId : Int)
-*/
+
