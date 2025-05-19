@@ -67,7 +67,6 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         switch selectedLeague {
         case .football:
             return footBallLeagues.count
@@ -81,12 +80,12 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
             return 1
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
         
-        
+        cell.backgroundColor = UIColor(named: "leagueCellBg")
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
         switch selectedLeague {
