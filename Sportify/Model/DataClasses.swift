@@ -19,6 +19,16 @@ class League {
         self.leagueLogo = json["league_logo"].stringValue
         self.leagueName = json["league_name"].stringValue
     }
+   
+    init (){
+        self.countryKey = 0
+        self.countryLogo = ""
+        self.countryName = ""
+        self.leageueKey = 0
+        self.leagueLogo = ""
+        self.leagueName = ""
+    }
+   
 }
 
 class FootballEvents{
