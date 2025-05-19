@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1WU-EE-TrV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hjg-8G-v1L">
     <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -191,7 +191,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1911.9402985074626" y="3.432494279176201"/>
+            <point key="canvasLocation" x="2831.3432835820895" y="3.432494279176201"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="Yoz-Wc-u84">
@@ -219,7 +219,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Res-CB-to7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2798" y="-1"/>
+            <point key="canvasLocation" x="3716.4179104477612" y="-1.3729977116704803"/>
         </scene>
         <!--Title-->
         <scene sceneID="hnt-zV-A3z">
@@ -404,7 +404,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBi-sn-dO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3594" y="3"/>
+            <point key="canvasLocation" x="4511.9402985074621" y="2.7459954233409607"/>
         </scene>
         <!--Team Details Collection View-->
         <scene sceneID="qvi-TI-Cg6">
@@ -585,7 +585,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0p-Sd-HrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4317.9104477611936" y="19.908466819221967"/>
+            <point key="canvasLocation" x="5237.313432835821" y="19.908466819221967"/>
         </scene>
         <!--Leagues-->
         <scene sceneID="sie-eX-T0f">
@@ -633,12 +633,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWb-aS-R6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985.49618320610682" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1904.4776119402984" y="3.432494279176201"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Splash-->
+        <scene sceneID="GDf-T5-7Vt">
+            <objects>
+                <viewController storyboardIdentifier="splash" title="Splash" id="o2a-WI-R4P" customClass="SplashViewController" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pOy-7u-c36">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7Uc-Ek-LxJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="x07-3F-FpF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAG-YQ-fwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.880597014925371" y="2.7459954233409607"/>
+        </scene>
+        <!--Tab Bar-->
         <scene sceneID="2Ng-ZP-jqH">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1WU-EE-TrV" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tapBar" automaticallyAdjustsScrollViewInsets="NO" id="1WU-EE-TrV" customClass="TabBar" customModule="Sportify" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qBs-jR-xpm">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -652,7 +668,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPC-z8-f43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58.778625954198468" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="977.61194029850742" y="3.432494279176201"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="L4c-UZ-ADg">
@@ -673,6 +689,24 @@
             </objects>
             <point key="canvasLocation" x="985" y="694"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jKa-Xx-h6x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hjg-8G-v1L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pm3-HB-MH7">
+                        <rect key="frame" x="0.0" y="124" width="402" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o2a-WI-R4P" kind="relationship" relationship="rootViewController" id="lXt-sq-i8P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emK-wy-ll7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-943.28358208955217" y="2.7459954233409607"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cricket.jpg" width="770" height="513"/>
@@ -687,7 +721,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

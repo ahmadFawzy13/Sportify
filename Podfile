@@ -10,5 +10,6 @@ target 'Sportify' do
 	pod 'Kingfisher', '~> 7.0'
 	pod 'SwiftMessages'
 	pod 'ReachabilitySwift'
+	pod 'lottie-ios'
 
 end

@@ -130,8 +130,6 @@
 				503744C72DDA52E100B605F2 /* SportifyTests */,
 			);
 			name = SportifyTests;
-			packageProductDependencies = (
-			);
 			productName = SportifyTests;
 			productReference = 503744C62DDA52E100B605F2 /* SportifyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
