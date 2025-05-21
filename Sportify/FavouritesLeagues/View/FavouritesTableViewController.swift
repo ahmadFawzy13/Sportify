@@ -9,10 +9,10 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroung = UIImageView(image: UIImage(named: "bg.jpeg"))
-        backgroung.contentMode = .scaleToFill
-        backgroung.frame = tableView.bounds
-        tableView.backgroundView = backgroung
+        let background = UIImageView(image: UIImage(named: "bg.jpeg"))
+        background.contentMode = .scaleToFill
+        background.frame = tableView.bounds
+        tableView.backgroundView = background
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         favouriteLeaguesPresenter.attatchView(favouriteLeagueDelegate: self)
@@ -25,11 +25,11 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return favouriteLeagues.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favouriteLeagues.count
+        return 1
     }
 
     
@@ -37,9 +37,10 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath)
                 as! LeaguesCell
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
-        cell.backgroundColor = UIColor(named: "tableViewColor")
-        cell.leagueTitle.text = favouriteLeagues[indexPath.row].name
-        cell.leagueLogo.kf.setImage(with: URL(string: favouriteLeagues[indexPath.row].logo),placeholder: UIImage(named: "sport.jpg")?.rounded, options: [
+        cell.layer.cornerRadius = 30
+        cell.backgroundColor = UIColor(named: "leagueCellBg")
+        cell.leagueTitle.text = favouriteLeagues[indexPath.section].name
+        cell.leagueLogo.kf.setImage(with: URL(string: favouriteLeagues[indexPath.section].logo),placeholder: UIImage(named: "sport.jpg")?.rounded, options: [
             .processor(processor),
             .scaleFactor(UIScreen.main.scale)
         ])
@@ -53,11 +54,11 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
-        vc.leagueKey = Int(favouriteLeagues[indexPath.row].id)
-        vc.leagueLogo = favouriteLeagues[indexPath.row].logo
-        vc.leagueName = favouriteLeagues[indexPath.row].name
+        vc.leagueKey = Int(favouriteLeagues[indexPath.section].id)
+        vc.leagueLogo = favouriteLeagues[indexPath.section].logo
+        vc.leagueName = favouriteLeagues[indexPath.section].name
         if NetworkMonitor.isNetworkAvailable() {
-            switch favouriteLeagues[indexPath.row].selectedLeague{
+            switch favouriteLeagues[indexPath.section].selectedLeague{
            case "football":
                 vc.selectedLeague = .football
             case "basketball":
@@ -85,7 +86,7 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            showNegativeAlert(league: favouriteLeagues[indexPath.row] ,indexPath: indexPath)
+            showNegativeAlert(league: favouriteLeagues[indexPath.section] ,indexPath: indexPath)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -99,7 +100,7 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         view.configureContent(title: "Deletion Warning", body: "Are you sure you want to Delete this league from favourites !", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Delete", buttonTapHandler: {
             _ in
             self.favouriteLeaguesPresenter.deleteFavouriteLeague(league: league)
-            self.favouriteLeagues.remove(at: indexPath.row)
+            self.favouriteLeagues.remove(at: indexPath.section)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             SwiftMessages.hide(animated: true)
         })
@@ -107,5 +108,16 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         SwiftMessages.show(view: view)
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
 
 }

@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lr-SD-6mQ">
                                 <rect key="frame" x="10" y="192" width="181" height="265"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="don.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-DV-9So">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="futy.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-DV-9So">
                                         <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
@@ -64,7 +64,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJR-Jo-Mc8">
                                 <rect key="frame" x="211" y="192" width="181" height="265"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jordan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-Cl-DEC">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bask.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jDs-Cl-DEC">
                                         <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
@@ -107,7 +107,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-IO-7RL">
                                 <rect key="frame" x="10" y="477" width="181" height="265"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cricket.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="c5v-AN-ugC">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crickrik.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="c5v-AN-ugC">
                                         <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
@@ -150,7 +150,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OW0-er-VXM">
                                 <rect key="frame" x="211" y="477" width="181" height="265"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nadal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-25-6IG">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tntn.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bZd-25-6IG">
                                         <rect key="frame" x="0.0" y="0.0" width="181" height="265"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
@@ -308,11 +308,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-
                                             <integer key="value" value="20"/>
-
-                                            <integer key="value" value="30"/>
-
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
@@ -413,11 +409,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-
                                             <integer key="value" value="20"/>
-
-                                            <integer key="value" value="30"/>
-
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
@@ -633,11 +625,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-
                                             <integer key="value" value="20"/>
-
-                                            <integer key="value" value="30"/>
-
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
@@ -811,14 +799,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bask.jpg" width="506" height="900"/>
         <image name="bg.jpeg" width="736" height="911"/>
-        <image name="cricket.jpg" width="770" height="513"/>
+        <image name="crickrik.jpg" width="3110.39990234375" height="5529.60009765625"/>
         <image name="don.jpg" width="1250" height="833"/>
         <image name="figure.badminton" catalog="system" width="118" height="128"/>
+        <image name="futy.jpg" width="541" height="1200"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="jordan.jpg" width="965" height="1500"/>
-        <image name="nadal.jpg" width="2560" height="1707"/>
         <image name="tennisPlaceholder.jpg" width="146.8800048828125" height="146.8800048828125"/>
+        <image name="tntn.jpg" width="506" height="900"/>
         <image name="trophy.fill" catalog="system" width="128" height="128"/>
         <namedColor name="homeLabelColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
