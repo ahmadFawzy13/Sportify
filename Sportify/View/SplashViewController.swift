@@ -16,7 +16,8 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         animationView = LottieAnimationView(name: "splash")
         guard let animationView = animationView else { return }
-        animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        animationView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        animationView.backgroundColor = .white
         animationView.center = self.view.center
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .repeat(1)
