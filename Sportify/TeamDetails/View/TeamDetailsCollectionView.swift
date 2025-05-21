@@ -84,15 +84,15 @@ class TeamDetailsCollectionView: UICollectionViewController,TeamDetailsDelegate 
     
     func drawPlayersSection() -> NSCollectionLayoutSection{
         //item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(0.5))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.4))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/4))
         
         let playerGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
+        playerGroup.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
         //Section
         let section = NSCollectionLayoutSection(group: playerGroup)
         section.boundarySupplementaryItems = [createSectionHeader()]

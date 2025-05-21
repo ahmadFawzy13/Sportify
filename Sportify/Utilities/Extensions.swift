@@ -41,7 +41,7 @@ extension UIView : @retroactive CAAnimationDelegate{
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = [-1.0, -0.5, 0.0]
         animation.toValue = [1.0, 1.5, 2.0]
-        animation.repeatCount = 1.5
+        animation.repeatCount = 0.3
         animation.duration = 0.9
         animation.delegate = self
         gradientLayer.add(animation, forKey: animation.keyPath)
