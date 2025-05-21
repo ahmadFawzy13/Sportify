@@ -13,10 +13,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroung = UIImageView(image: UIImage(named: "bg.jpeg"))
-        backgroung.contentMode = .scaleToFill
-        backgroung.frame = tableView.bounds
-        tableView.backgroundView = backgroung
+        
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         
@@ -66,10 +63,6 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch selectedLeague {
         case .football:
             return footBallLeagues.count
@@ -83,44 +76,49 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
             return 1
         }
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
         
-        cell.backgroundColor = UIColor(named: "tableViewColor")
+        cell.backgroundColor = UIColor(named: "leagueCellBg")
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
         switch selectedLeague {
             
         case .basketball:
             chosenLeague = basketballLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "nba.jpg")?.rounded, options: [
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.section].leagueLogo),placeholder: UIImage(named: "nba.jpg")?.rounded, options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale)
             ])
         case .football :
             chosenLeague = footBallLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "conembol.png")?.rounded , options: [
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.section].leagueLogo),placeholder: UIImage(named: "conembol.png")?.rounded , options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale)
             ])
         case .cricket :
             chosenLeague = cricketLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg")?.rounded , options: [
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.section].leagueLogo),placeholder: UIImage(named: "cricketPlaceholder.jpg")?.rounded , options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale)
             ])
         case .tennis :
             chosenLeague = tennisLeagues
-            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.row].leagueLogo),placeholder: UIImage(named: "tennisPlaceholder.jpg")?.rounded , options: [
+            cell.leagueLogo.kf.setImage(with: URL(string: chosenLeague[indexPath.section].leagueLogo),placeholder: UIImage(named: "tennisPlaceholder.jpg")?.rounded , options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale)
             ])
         case .none:
             chosenLeague = []
         }
-        cell.leagueTitle.text = chosenLeague[indexPath.row].leagueName
+        cell.leagueTitle.text = chosenLeague[indexPath.section].leagueName
         startShimmerEffectForLeagueCell(cell: cell)
         return cell
     }
@@ -133,24 +131,24 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
         switch selectedLeague {
         case .football:
-            vc.leagueKey = footBallLeagues[indexPath.row].leageueKey
-            vc.leagueName = footBallLeagues[indexPath.row].leagueName
-            vc.leagueLogo = footBallLeagues[indexPath.row].leagueLogo
+            vc.leagueKey = footBallLeagues[indexPath.section].leageueKey
+            vc.leagueName = footBallLeagues[indexPath.section].leagueName
+            vc.leagueLogo = footBallLeagues[indexPath.section].leagueLogo
             vc.selectedLeague = .football
         case .basketball:
-            vc.leagueKey = basketballLeagues[indexPath.row].leageueKey
-            vc.leagueName = basketballLeagues[indexPath.row].leagueName
-            vc.leagueLogo = basketballLeagues[indexPath.row].leagueLogo
+            vc.leagueKey = basketballLeagues[indexPath.section].leageueKey
+            vc.leagueName = basketballLeagues[indexPath.section].leagueName
+            vc.leagueLogo = basketballLeagues[indexPath.section].leagueLogo
             vc.selectedLeague = .basketball
         case .cricket:
-            vc.leagueKey = cricketLeagues[indexPath.row].leageueKey
-            vc.leagueName = cricketLeagues[indexPath.row].leagueName
-            vc.leagueLogo = cricketLeagues[indexPath.row].leagueLogo
+            vc.leagueKey = cricketLeagues[indexPath.section].leageueKey
+            vc.leagueName = cricketLeagues[indexPath.section].leagueName
+            vc.leagueLogo = cricketLeagues[indexPath.section].leagueLogo
             vc.selectedLeague = .cricket
         case .tennis:
-            vc.leagueKey = tennisLeagues[indexPath.row].leageueKey
-            vc.leagueName = tennisLeagues[indexPath.row].leagueName
-            vc.leagueLogo = tennisLeagues[indexPath.row].leagueLogo
+            vc.leagueKey = tennisLeagues[indexPath.section].leageueKey
+            vc.leagueName = tennisLeagues[indexPath.section].leagueName
+            vc.leagueLogo = tennisLeagues[indexPath.section].leagueLogo
             vc.selectedLeague = .tennis
         case nil:
             break
@@ -171,51 +169,14 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(10)
+    }
     
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
