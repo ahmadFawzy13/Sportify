@@ -284,6 +284,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpeg" id="OCo-ST-4yE">
+                            <rect key="frame" x="0.0" y="-124" width="402" height="874"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamsCell" id="058-Lu-a8L" customClass="TeamsCell" customModule="Sportify" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="402" height="198"/>
@@ -324,9 +328,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QId-In-fcZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="402" height="198"/>
-                                        </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="don.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OPW-JE-1yx">
                                             <rect key="frame" x="20" y="49" width="100" height="100"/>
                                             <constraints>
@@ -387,15 +388,12 @@
                                     <constraints>
                                         <constraint firstItem="2YA-Eb-Ret" firstAttribute="trailing" secondItem="l6w-Jc-8tB" secondAttribute="trailing" id="7g7-9q-6j3"/>
                                         <constraint firstItem="2YA-Eb-Ret" firstAttribute="top" secondItem="l6w-Jc-8tB" secondAttribute="bottom" constant="10" id="7kh-5o-PLP"/>
-                                        <constraint firstAttribute="bottom" secondItem="QId-In-fcZ" secondAttribute="bottom" id="8MC-y8-EsB"/>
                                         <constraint firstItem="Vnl-zP-Gc4" firstAttribute="centerY" secondItem="OPW-JE-1yx" secondAttribute="centerY" id="9vD-T2-X8T"/>
                                         <constraint firstAttribute="bottom" secondItem="PPX-4u-oWd" secondAttribute="bottom" constant="19" id="CDg-4P-YhX"/>
                                         <constraint firstItem="Vnl-zP-Gc4" firstAttribute="centerX" secondItem="De6-cq-AY7" secondAttribute="centerX" id="Cfj-IZ-xwF"/>
                                         <constraint firstItem="wsS-Mx-pZA" firstAttribute="top" secondItem="Vnl-zP-Gc4" secondAttribute="bottom" constant="5" id="ISj-eb-MPh"/>
                                         <constraint firstItem="PPX-4u-oWd" firstAttribute="top" secondItem="OPW-JE-1yx" secondAttribute="bottom" constant="10" id="LCL-PA-7Hy"/>
-                                        <constraint firstItem="QId-In-fcZ" firstAttribute="leading" secondItem="De6-cq-AY7" secondAttribute="leading" id="Pqq-Mj-r7m"/>
                                         <constraint firstItem="dtt-ma-0wQ" firstAttribute="centerX" secondItem="De6-cq-AY7" secondAttribute="centerX" constant="-2.5" id="SSX-1K-qp0"/>
-                                        <constraint firstItem="QId-In-fcZ" firstAttribute="top" secondItem="De6-cq-AY7" secondAttribute="top" id="Ul6-eb-ZX8"/>
                                         <constraint firstItem="2YA-Eb-Ret" firstAttribute="leading" secondItem="l6w-Jc-8tB" secondAttribute="leading" id="Yey-n9-Y4b"/>
                                         <constraint firstItem="OPW-JE-1yx" firstAttribute="centerY" secondItem="De6-cq-AY7" secondAttribute="centerY" id="Z35-LB-Fzm"/>
                                         <constraint firstItem="PPX-4u-oWd" firstAttribute="leading" secondItem="OPW-JE-1yx" secondAttribute="leading" id="cM5-1o-Z1o"/>
@@ -405,7 +403,6 @@
                                         <constraint firstItem="vqk-0G-phX" firstAttribute="top" secondItem="wsS-Mx-pZA" secondAttribute="bottom" constant="5" id="luo-27-QbX"/>
                                         <constraint firstAttribute="bottom" secondItem="2YA-Eb-Ret" secondAttribute="bottom" constant="19" id="mK1-dS-iBO"/>
                                         <constraint firstItem="wsS-Mx-pZA" firstAttribute="centerX" secondItem="De6-cq-AY7" secondAttribute="centerX" id="oAx-Sw-fRO"/>
-                                        <constraint firstAttribute="trailing" secondItem="QId-In-fcZ" secondAttribute="trailing" id="sLC-vG-NH4"/>
                                         <constraint firstAttribute="trailing" secondItem="l6w-Jc-8tB" secondAttribute="trailing" constant="20" id="wun-Fd-bVY"/>
                                         <constraint firstItem="l6w-Jc-8tB" firstAttribute="centerY" secondItem="De6-cq-AY7" secondAttribute="centerY" id="z1X-dl-9Py"/>
                                         <constraint firstItem="Vnl-zP-Gc4" firstAttribute="top" secondItem="dtt-ma-0wQ" secondAttribute="bottom" constant="8.6666666666666714" id="zbs-08-4hJ"/>
@@ -423,7 +420,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="backgroundLogo" destination="QId-In-fcZ" id="MSq-3D-tX2"/>
                                     <outlet property="firstTeamLogo" destination="OPW-JE-1yx" id="sDc-VF-vUU"/>
                                     <outlet property="firstTeamName" destination="PPX-4u-oWd" id="EFF-Lt-lWf"/>
                                     <outlet property="matchDate" destination="wsS-Mx-pZA" id="rE0-FN-c7K"/>
@@ -489,6 +485,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpeg" id="KVG-ze-nfT">
+                            <rect key="frame" x="0.0" y="-124" width="402" height="874"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="player" id="rqe-JU-y8j" customClass="PlayersCell" customModule="Sportify" customModuleProvider="target">
                                 <rect key="frame" x="49.666666666666664" y="50" width="303" height="216"/>
@@ -798,6 +798,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg.jpeg" width="736" height="911"/>
         <image name="cricket.jpg" width="770" height="513"/>
         <image name="don.jpg" width="1250" height="833"/>
         <image name="figure.badminton" catalog="system" width="118" height="128"/>
@@ -811,9 +812,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,7 +9,10 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let backgroung = UIImageView(image: UIImage(named: "bg.jpeg"))
+        backgroung.contentMode = .scaleToFill
+        backgroung.frame = tableView.bounds
+        tableView.backgroundView = backgroung
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         favouriteLeaguesPresenter.attatchView(favouriteLeagueDelegate: self)
