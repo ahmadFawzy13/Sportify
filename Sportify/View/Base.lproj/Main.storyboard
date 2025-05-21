@@ -254,6 +254,11 @@
                                         <constraint firstAttribute="bottom" secondItem="61p-GG-dg1" secondAttribute="bottom" id="nt7-If-c9V"/>
                                         <constraint firstItem="61p-GG-dg1" firstAttribute="leading" secondItem="H0f-fC-Zce" secondAttribute="leading" id="wtk-l6-QeH"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="teamLogo" destination="61p-GG-dg1" id="XvY-Gp-WS0"/>
@@ -352,6 +357,11 @@
                                         <constraint firstItem="l6w-Jc-8tB" firstAttribute="centerY" secondItem="De6-cq-AY7" secondAttribute="centerY" id="z1X-dl-9Py"/>
                                         <constraint firstItem="Vnl-zP-Gc4" firstAttribute="top" secondItem="dtt-ma-0wQ" secondAttribute="bottom" constant="5" id="zbs-08-4hJ"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="402" height="198"/>
                                 <connections>
@@ -544,6 +554,11 @@
                                         <constraint firstItem="p3J-Ty-7bs" firstAttribute="leading" secondItem="oqD-uP-8Ml" secondAttribute="leading" id="soc-Aa-OFa"/>
                                         <constraint firstItem="p3J-Ty-7bs" firstAttribute="leading" secondItem="7vq-lR-Hj2" secondAttribute="leading" constant="20" id="wYZ-C4-CTc"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="383" height="216"/>
                                 <connections>
