@@ -14,6 +14,11 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let background = UIImageView(image: UIImage(named: "bg.jpeg"))
+        background.contentMode = .scaleToFill
+        background.frame = tableView.bounds
+        tableView.backgroundView = background
+        
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         
@@ -85,7 +90,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath) as! LeaguesCell
         
-        
+        cell.layer.cornerRadius = 30
         cell.backgroundColor = UIColor(named: "leagueCellBg")
         var chosenLeague : [League] = []
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
@@ -170,7 +175,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(10)
+        return 0.1
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -178,5 +183,7 @@ class LeaguesTableViewController: UITableViewController,LeaguesTableDelegate {
         headerView.backgroundColor = .clear
         return headerView
     }
+    
+    
 
 }

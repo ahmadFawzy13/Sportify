@@ -1,10 +1,3 @@
-//
-//  Untitled.swift
-//  Sportify
-//
-//  Created by Abdullah Raed on 16/05/2025.
-//
-
 import Foundation
 
 class FavouriteLeaguesPresenter : FavouriteLeaguesPresenterProtocol{
