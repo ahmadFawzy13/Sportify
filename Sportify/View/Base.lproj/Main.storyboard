@@ -499,6 +499,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="don.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-WA-Du0">
                                             <rect key="frame" x="50" y="17" width="210" height="148"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="148" id="9H5-3V-qhj"/>
                                                 <constraint firstAttribute="width" constant="219" id="v3Y-k2-j6P"/>
@@ -507,7 +508,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xu8-cn-Jet">
                                             <rect key="frame" x="15" y="178" width="273" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -685,7 +686,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="75" id="5kk-GK-W5N" customClass="LeaguesCell" customModule="Sportify" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="75" id="5kk-GK-W5N" customClass="LeaguesCell" customModule="Sportify" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="402" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5kk-GK-W5N" id="CzE-eH-BeR">

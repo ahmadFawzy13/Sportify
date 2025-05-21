@@ -37,7 +37,7 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "nibCell", for: indexPath)
                 as! LeaguesCell
         let processor = RoundCornerImageProcessor(cornerRadius: cell.leagueLogo.frame.height / 2)
-        cell.backgroundColor = UIColor(named: "leagueCellBg")
+        cell.backgroundColor = UIColor(named: "tableViewColor")
         cell.leagueTitle.text = favouriteLeagues[indexPath.row].name
         cell.leagueLogo.kf.setImage(with: URL(string: favouriteLeagues[indexPath.row].logo),placeholder: UIImage(named: "sport.jpg")?.rounded, options: [
             .processor(processor),
