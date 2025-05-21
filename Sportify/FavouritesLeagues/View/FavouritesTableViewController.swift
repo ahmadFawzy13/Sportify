@@ -16,6 +16,8 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         let nib = UINib(nibName: "LeaguesCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "nibCell")
         favouriteLeaguesPresenter.attatchView(favouriteLeagueDelegate: self)
+    }
+    override func viewWillAppear(_ animated: Bool) {
         favouriteLeaguesPresenter.getAllFavouriteLeagues()
     }
     
@@ -86,12 +88,13 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            showNegativeAlert(league: favouriteLeagues[indexPath.section] ,indexPath: indexPath)
+            showNegativeAlert(league: favouriteLeagues[indexPath.row] ,indexPath: indexPath)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+    
 
     func showNegativeAlert(league : LeagueDB , indexPath : IndexPath){
         let view = MessageView.viewFromNib(layout: .centeredView)
@@ -100,8 +103,8 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
         view.configureContent(title: "Deletion Warning", body: "Are you sure you want to Delete this league from favourites !", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Delete", buttonTapHandler: {
             _ in
             self.favouriteLeaguesPresenter.deleteFavouriteLeague(league: league)
-            self.favouriteLeagues.remove(at: indexPath.section)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.favouriteLeagues.remove(at: indexPath.row)
+            self.tableView.reloadData()
             SwiftMessages.hide(animated: true)
         })
         (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
