@@ -331,6 +331,7 @@ class LeaguesDetailsCollectionView: UICollectionViewController , LeaguesDetailsD
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         switch indexPath.section{
             case 0:
                 print("Nothing")

@@ -55,6 +55,7 @@ class FavouritesTableViewController: UITableViewController ,FavouriteLeaguesDele
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(withIdentifier: "leagueDetails") as! LeaguesDetailsCollectionView
         vc.leagueKey = Int(favouriteLeagues[indexPath.section].id)
         vc.leagueLogo = favouriteLeagues[indexPath.section].logo
